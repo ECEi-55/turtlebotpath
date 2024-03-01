@@ -1,0 +1,33 @@
+[35m[1mConsolidate compiler generated dependencies of target turtlebot4_cpp_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o[0m
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:45:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kgeometry_msgs[m[K’ was not declared in this scope
+   45 |   rclcpp::Publisher<[01;31m[Kgeometry_msgs[m[K::Twist>::SharedPtr lightring_publisher_;
+      |                     [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:45:41:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+   45 |   rclcpp::Publisher<geometry_msgs::Twist[01;31m[K>[m[K::SharedPtr lightring_publisher_;
+      |                                         [01;31m[K^[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:45:44:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+   45 |   rclcpp::Publisher<geometry_msgs::Twist>::[01;31m[KSharedPtr[m[K lightring_publisher_;
+      |                                            [01;31m[K^~~~~~~~~[m[K
+      |                                                     [32m[K;[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:45:54:[m[K [01;31m[Kerror: [m[K‘[01m[Klightring_publisher_[m[K’ does not name a type
+   45 |   rclcpp::Publisher<geometry_msgs::Twist>::SharedPtr [01;31m[Klightring_publisher_[m[K;
+      |                                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K In constructor ‘[01m[KTurtleBot4Node::TurtleBot4Node()[m[K’:
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:26:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpath_publisher_[m[K’ was not declared in this scope; did you mean ‘[01m[Kcreate_publisher[m[K’?
+   26 |     [01;31m[Kpath_publisher_[m[K = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", rclcpp::SensorDataQos());
+      |     [01;31m[K^~~~~~~~~~~~~~~[m[K
+      |     [32m[Kcreate_publisher[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:26:46:[m[K [01;31m[Kerror: [m[K‘[01m[Kgeometry_msgs[m[K’ was not declared in this scope
+   26 |     path_publisher_ = this->create_publisher<[01;31m[Kgeometry_msgs[m[K::msg::Twist>("/cmd_vel", rclcpp::SensorDataQos());
+      |                                              [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:26:29:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+   26 |     path_publisher_ = this->[01;31m[Kcreate_publisher<geometry_msgs::msg::Twist>[m[K("/cmd_vel", rclcpp::SensorDataQos());
+      |                             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:26:93:[m[K [01;31m[Kerror: [m[K‘[01m[KSensorDataQos[m[K’ is not a member of ‘[01m[Krclcpp[m[K’; did you mean ‘[01m[KSensorDataQoS[m[K’?
+   26 |     path_publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", rclcpp::[01;31m[KSensorDataQos[m[K());
+      |                                                                                             [01;31m[K^~~~~~~~~~~~~[m[K
+      |                                                                                             [32m[KSensorDataQoS[m[K
+gmake[2]: *** [CMakeFiles/turtlebot4_cpp_node.dir/build.make:76: CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/turtlebot4_cpp_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,3 @@
+[console_scripts]
+turtlebot4_py_node = turtlebot4_py.turtlebot4_py_node:main
+

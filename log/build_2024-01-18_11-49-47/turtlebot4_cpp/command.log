@@ -1,0 +1,2 @@
+Invoking command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ros/turtlebot4_ws/src/turtlebot4_cpp -DCMAKE_INSTALL_PREFIX=/home/ros/turtlebot4_ws/install/turtlebot4_cpp
+Invoked command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/ros/turtlebot4_ws/src/turtlebot4_cpp -DCMAKE_INSTALL_PREFIX=/home/ros/turtlebot4_ws/install/turtlebot4_cpp

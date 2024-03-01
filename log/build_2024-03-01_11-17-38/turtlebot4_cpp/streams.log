@@ -1,0 +1,25 @@
+[0.136s] Invoking command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ros/turtlebot4_ws/build/turtlebot4_cpp -- -j6 -l6
+[0.322s] [ 50%] [32mBuilding CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o[0m
+[8.613s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K In constructor ‘[01m[KTurtleBot4Node::TurtleBot4Node()[m[K’:
+[8.614s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:26:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kpath_publisher_[m[K’ was not declared in this scope; did you mean ‘[01m[Kcreate_publisher[m[K’?
+[8.614s]    26 |     [01;31m[Kpath_publisher_[m[K = this->create_publisher<geometry_msgs::msg::Twist.msg>("/cmd_vel", rclcpp::SensorDataQos());
+[8.614s]       |     [01;31m[K^~~~~~~~~~~~~~~[m[K
+[8.614s]       |     [32m[Kcreate_publisher[m[K
+[8.650s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:26:46:[m[K [01;31m[Kerror: [m[K‘[01m[Kgeometry_msgs[m[K’ was not declared in this scope
+[8.650s]    26 |     path_publisher_ = this->create_publisher<[01;31m[Kgeometry_msgs[m[K::msg::Twist.msg>("/cmd_vel", rclcpp::SensorDataQos());
+[8.651s]       |                                              [01;31m[K^~~~~~~~~~~~~[m[K
+[8.651s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:26:29:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+[8.651s]    26 |     path_publisher_ = this->[01;31m[Kcreate_publisher<geometry_msgs::msg::Twist.msg>[m[K("/cmd_vel", rclcpp::SensorDataQos());
+[8.651s]       |                             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[8.652s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:26:97:[m[K [01;31m[Kerror: [m[K‘[01m[KSensorDataQos[m[K’ is not a member of ‘[01m[Krclcpp[m[K’; did you mean ‘[01m[KSensorDataQoS[m[K’?
+[8.652s]    26 |     path_publisher_ = this->create_publisher<geometry_msgs::msg::Twist.msg>("/cmd_vel", rclcpp::[01;31m[KSensorDataQos[m[K());
+[8.652s]       |                                                                                                 [01;31m[K^~~~~~~~~~~~~[m[K
+[8.652s]       |                                                                                                 [32m[KSensorDataQoS[m[K
+[8.714s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::path()[m[K’:
+[8.714s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:39:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kgeometry[m[K’ has not been declared
+[8.714s]    39 |     auto path = [01;31m[Kgeometry[m[K::msg:Vector3;
+[8.714s]       |                 [01;31m[K^~~~~~~~[m[K
+[15.778s] gmake[2]: *** [CMakeFiles/turtlebot4_cpp_node.dir/build.make:76: CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o] Error 1
+[15.778s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/turtlebot4_cpp_node.dir/all] Error 2
+[15.778s] gmake: *** [Makefile:146: all] Error 2
+[15.783s] Invoked command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ros/turtlebot4_ws/build/turtlebot4_cpp -- -j6 -l6

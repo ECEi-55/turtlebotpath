@@ -1,0 +1,30 @@
+[0.217s] Invoking command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ros/turtlebot4_ws/build/turtlebot4_cpp -- -j6 -l6
+[0.551s] [35m[1mConsolidate compiler generated dependencies of target turtlebot4_cpp_node[0m
+[0.841s] [ 50%] [32mBuilding CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o[0m
+[7.400s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::path()[m[K’:
+[7.400s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:51:11:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kcurrent_pos[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+[7.400s]    51 |     float [01;35m[Kcurrent_pos[m[K[2];
+[7.401s]       |           [01;35m[K^~~~~~~~~~~[m[K
+[18.938s] [100%] [32m[1mLinking CXX executable turtlebot4_cpp_node[0m
+[19.733s] [100%] Built target turtlebot4_cpp_node
+[19.793s] Invoked command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ros/turtlebot4_ws/build/turtlebot4_cpp -- -j6 -l6
+[19.993s] Invoking command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ros/turtlebot4_ws/build/turtlebot4_cpp
+[20.027s] -- Install configuration: ""
+[20.028s] -- Installing: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/lib/turtlebot4_cpp/turtlebot4_cpp_node
+[20.035s] -- Set runtime path of "/home/ros/turtlebot4_ws/install/turtlebot4_cpp/lib/turtlebot4_cpp/turtlebot4_cpp_node" to ""
+[20.057s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/ament_index/resource_index/package_run_dependencies/turtlebot4_cpp
+[20.057s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/ament_index/resource_index/parent_prefix_path/turtlebot4_cpp
+[20.057s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/environment/ament_prefix_path.sh
+[20.057s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/environment/ament_prefix_path.dsv
+[20.057s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/environment/path.sh
+[20.057s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/environment/path.dsv
+[20.057s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/local_setup.bash
+[20.058s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/local_setup.sh
+[20.058s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/local_setup.zsh
+[20.058s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/local_setup.dsv
+[20.058s] -- Installing: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/package.dsv
+[20.058s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/ament_index/resource_index/packages/turtlebot4_cpp
+[20.058s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/cmake/turtlebot4_cppConfig.cmake
+[20.058s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/cmake/turtlebot4_cppConfig-version.cmake
+[20.058s] -- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/package.xml
+[20.069s] Invoked command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/ros/turtlebot4_ws/build/turtlebot4_cpp

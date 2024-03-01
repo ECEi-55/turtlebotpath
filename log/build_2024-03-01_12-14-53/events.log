@@ -1,0 +1,216 @@
+[0.000000] (-) TimerEvent: {}
+[0.015879] (-) JobUnselected: {'identifier': 'turtlebot4_base'}
+[0.021204] (-) JobUnselected: {'identifier': 'turtlebot4_bringup'}
+[0.021390] (-) JobUnselected: {'identifier': 'turtlebot4_diagnostics'}
+[0.021503] (-) JobUnselected: {'identifier': 'turtlebot4_py'}
+[0.021532] (-) JobUnselected: {'identifier': 'turtlebot4_robot'}
+[0.022356] (-) JobUnselected: {'identifier': 'turtlebot4_tests'}
+[0.022528] (turtlebot4_cpp) JobQueued: {'identifier': 'turtlebot4_cpp', 'dependencies': OrderedDict()}
+[0.023015] (turtlebot4_cpp) JobStarted: {'identifier': 'turtlebot4_cpp'}
+[0.092024] (-) TimerEvent: {}
+[0.194515] (-) TimerEvent: {}
+[0.207758] (turtlebot4_cpp) JobProgress: {'identifier': 'turtlebot4_cpp', 'progress': 'cmake'}
+[0.207960] (turtlebot4_cpp) JobProgress: {'identifier': 'turtlebot4_cpp', 'progress': 'build'}
+[0.208099] (turtlebot4_cpp) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ros/turtlebot4_ws/build/turtlebot4_cpp', '--', '-j6', '-l6'], 'cwd': '/home/ros/turtlebot4_ws/build/turtlebot4_cpp', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_CA:en'), ('USER', 'ros'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/ros'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('OLDPWD', '/opt/ros/humble/include/geometry_msgs'), ('TERM_PROGRAM_VERSION', '1.87.0'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('SYSTEMD_EXEC_PID', '1592'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ros'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'ros'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ros-vm:@/tmp/.ICE-unix/1566,unix/ros-vm:/tmp/.ICE-unix/1566'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/4e702093_322a_4bcc_99bb_82b2a04deace'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_CA.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.AA57J2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6e17a2ffad.sock'), ('GNOME_TERMINAL_SERVICE', ':1.234'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/ros/turtlebot4_ws/build/turtlebot4_cpp'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.308241] (-) TimerEvent: {}
+[0.394613] (turtlebot4_cpp) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target turtlebot4_cpp_node\x1b[0m\n'}
+[0.421597] (-) TimerEvent: {}
+[0.529937] (-) TimerEvent: {}
+[0.537914] (turtlebot4_cpp) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o\x1b[0m\n'}
+[0.632878] (-) TimerEvent: {}
+[0.735262] (-) TimerEvent: {}
+[0.837549] (-) TimerEvent: {}
+[0.938337] (-) TimerEvent: {}
+[1.066733] (-) TimerEvent: {}
+[1.225027] (-) TimerEvent: {}
+[1.343627] (-) TimerEvent: {}
+[1.463556] (-) TimerEvent: {}
+[1.622322] (-) TimerEvent: {}
+[1.729129] (-) TimerEvent: {}
+[1.922962] (-) TimerEvent: {}
+[2.035103] (-) TimerEvent: {}
+[2.160212] (-) TimerEvent: {}
+[2.276832] (-) TimerEvent: {}
+[2.378521] (-) TimerEvent: {}
+[2.486429] (-) TimerEvent: {}
+[2.587504] (-) TimerEvent: {}
+[2.688633] (-) TimerEvent: {}
+[2.793102] (-) TimerEvent: {}
+[2.932821] (-) TimerEvent: {}
+[3.035800] (-) TimerEvent: {}
+[3.136674] (-) TimerEvent: {}
+[3.238536] (-) TimerEvent: {}
+[3.361015] (-) TimerEvent: {}
+[3.478240] (-) TimerEvent: {}
+[3.585740] (-) TimerEvent: {}
+[3.692197] (-) TimerEvent: {}
+[3.797181] (-) TimerEvent: {}
+[3.900334] (-) TimerEvent: {}
+[4.006637] (-) TimerEvent: {}
+[4.114663] (-) TimerEvent: {}
+[4.237361] (-) TimerEvent: {}
+[4.348626] (-) TimerEvent: {}
+[4.475719] (-) TimerEvent: {}
+[4.590479] (-) TimerEvent: {}
+[4.695534] (-) TimerEvent: {}
+[4.817626] (-) TimerEvent: {}
+[4.918527] (-) TimerEvent: {}
+[5.019365] (-) TimerEvent: {}
+[5.120000] (-) TimerEvent: {}
+[5.229078] (-) TimerEvent: {}
+[5.336399] (-) TimerEvent: {}
+[5.477069] (-) TimerEvent: {}
+[5.598861] (-) TimerEvent: {}
+[5.710219] (-) TimerEvent: {}
+[5.812373] (-) TimerEvent: {}
+[5.914726] (-) TimerEvent: {}
+[6.015751] (-) TimerEvent: {}
+[6.120728] (-) TimerEvent: {}
+[6.224009] (-) TimerEvent: {}
+[6.335478] (-) TimerEvent: {}
+[6.444814] (-) TimerEvent: {}
+[6.546994] (-) TimerEvent: {}
+[6.657344] (-) TimerEvent: {}
+[6.766877] (-) TimerEvent: {}
+[6.871919] (-) TimerEvent: {}
+[6.974306] (-) TimerEvent: {}
+[7.089376] (-) TimerEvent: {}
+[7.201043] (-) TimerEvent: {}
+[7.306351] (-) TimerEvent: {}
+[7.407843] (-) TimerEvent: {}
+[7.516274] (-) TimerEvent: {}
+[7.617477] (-) TimerEvent: {}
+[7.720069] (-) TimerEvent: {}
+[7.824850] (-) TimerEvent: {}
+[7.938191] (-) TimerEvent: {}
+[8.040763] (-) TimerEvent: {}
+[8.155560] (-) TimerEvent: {}
+[8.287782] (-) TimerEvent: {}
+[8.395524] (-) TimerEvent: {}
+[8.503710] (-) TimerEvent: {}
+[8.604706] (-) TimerEvent: {}
+[8.705370] (-) TimerEvent: {}
+[8.806390] (-) TimerEvent: {}
+[8.907159] (-) TimerEvent: {}
+[9.015274] (-) TimerEvent: {}
+[9.116764] (-) TimerEvent: {}
+[9.217925] (-) TimerEvent: {}
+[9.320846] (-) TimerEvent: {}
+[9.422891] (-) TimerEvent: {}
+[9.527429] (-) TimerEvent: {}
+[9.630546] (-) TimerEvent: {}
+[9.733986] (-) TimerEvent: {}
+[9.836153] (-) TimerEvent: {}
+[9.938334] (-) TimerEvent: {}
+[10.047361] (-) TimerEvent: {}
+[10.153439] (-) TimerEvent: {}
+[10.254681] (-) TimerEvent: {}
+[10.355808] (-) TimerEvent: {}
+[10.456990] (-) TimerEvent: {}
+[10.558136] (-) TimerEvent: {}
+[10.659247] (-) TimerEvent: {}
+[10.760367] (-) TimerEvent: {}
+[10.860853] (-) TimerEvent: {}
+[10.961815] (-) TimerEvent: {}
+[11.063132] (-) TimerEvent: {}
+[11.164351] (-) TimerEvent: {}
+[11.264933] (-) TimerEvent: {}
+[11.365703] (-) TimerEvent: {}
+[11.466951] (-) TimerEvent: {}
+[11.568073] (-) TimerEvent: {}
+[11.669282] (-) TimerEvent: {}
+[11.769905] (-) TimerEvent: {}
+[11.870679] (-) TimerEvent: {}
+[11.971742] (-) TimerEvent: {}
+[12.073044] (-) TimerEvent: {}
+[12.174273] (-) TimerEvent: {}
+[12.274915] (-) TimerEvent: {}
+[12.375501] (-) TimerEvent: {}
+[12.476782] (-) TimerEvent: {}
+[12.578241] (-) TimerEvent: {}
+[12.680108] (-) TimerEvent: {}
+[12.781272] (-) TimerEvent: {}
+[12.882132] (-) TimerEvent: {}
+[12.983477] (-) TimerEvent: {}
+[13.084289] (-) TimerEvent: {}
+[13.185430] (-) TimerEvent: {}
+[13.286828] (-) TimerEvent: {}
+[13.387898] (-) TimerEvent: {}
+[13.488446] (-) TimerEvent: {}
+[13.589353] (-) TimerEvent: {}
+[13.690751] (-) TimerEvent: {}
+[13.791852] (-) TimerEvent: {}
+[13.892318] (-) TimerEvent: {}
+[13.993438] (-) TimerEvent: {}
+[14.094556] (-) TimerEvent: {}
+[14.195362] (-) TimerEvent: {}
+[14.296489] (-) TimerEvent: {}
+[14.398349] (-) TimerEvent: {}
+[14.498795] (-) TimerEvent: {}
+[14.599299] (-) TimerEvent: {}
+[14.699966] (-) TimerEvent: {}
+[14.800439] (-) TimerEvent: {}
+[14.914235] (-) TimerEvent: {}
+[15.015218] (-) TimerEvent: {}
+[15.116461] (-) TimerEvent: {}
+[15.216835] (-) TimerEvent: {}
+[15.317986] (-) TimerEvent: {}
+[15.419257] (-) TimerEvent: {}
+[15.519643] (-) TimerEvent: {}
+[15.620803] (-) TimerEvent: {}
+[15.721957] (-) TimerEvent: {}
+[15.824890] (-) TimerEvent: {}
+[15.938994] (-) TimerEvent: {}
+[16.042087] (-) TimerEvent: {}
+[16.152301] (-) TimerEvent: {}
+[16.267005] (-) TimerEvent: {}
+[16.410575] (-) TimerEvent: {}
+[16.513644] (-) TimerEvent: {}
+[16.615038] (-) TimerEvent: {}
+[16.718147] (-) TimerEvent: {}
+[16.818612] (-) TimerEvent: {}
+[16.919591] (-) TimerEvent: {}
+[17.021434] (-) TimerEvent: {}
+[17.124620] (-) TimerEvent: {}
+[17.226996] (-) TimerEvent: {}
+[17.256499] (turtlebot4_cpp) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable turtlebot4_cpp_node\x1b[0m\n'}
+[17.331075] (-) TimerEvent: {}
+[17.433094] (-) TimerEvent: {}
+[17.534735] (-) TimerEvent: {}
+[17.639911] (-) TimerEvent: {}
+[17.756208] (-) TimerEvent: {}
+[17.890841] (-) TimerEvent: {}
+[18.013406] (-) TimerEvent: {}
+[18.128360] (-) TimerEvent: {}
+[18.190147] (turtlebot4_cpp) StdoutLine: {'line': b'[100%] Built target turtlebot4_cpp_node\n'}
+[18.218645] (turtlebot4_cpp) CommandEnded: {'returncode': 0}
+[18.226765] (-) TimerEvent: {}
+[18.322894] (turtlebot4_cpp) JobProgress: {'identifier': 'turtlebot4_cpp', 'progress': 'install'}
+[18.327926] (-) TimerEvent: {}
+[18.342425] (turtlebot4_cpp) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ros/turtlebot4_ws/build/turtlebot4_cpp'], 'cwd': '/home/ros/turtlebot4_ws/build/turtlebot4_cpp', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_CA:en'), ('USER', 'ros'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/ros'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('OLDPWD', '/opt/ros/humble/include/geometry_msgs'), ('TERM_PROGRAM_VERSION', '1.87.0'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('SYSTEMD_EXEC_PID', '1592'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ros'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'ros'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ros-vm:@/tmp/.ICE-unix/1566,unix/ros-vm:/tmp/.ICE-unix/1566'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/4e702093_322a_4bcc_99bb_82b2a04deace'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_CA.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.AA57J2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6e17a2ffad.sock'), ('GNOME_TERMINAL_SERVICE', ':1.234'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/ros/turtlebot4_ws/build/turtlebot4_cpp'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[18.358532] (turtlebot4_cpp) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[18.358927] (turtlebot4_cpp) StdoutLine: {'line': b'-- Installing: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/lib/turtlebot4_cpp/turtlebot4_cpp_node\n'}
+[18.368399] (turtlebot4_cpp) StdoutLine: {'line': b'-- Set runtime path of "/home/ros/turtlebot4_ws/install/turtlebot4_cpp/lib/turtlebot4_cpp/turtlebot4_cpp_node" to ""\n'}
+[18.369262] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/ament_index/resource_index/package_run_dependencies/turtlebot4_cpp\n'}
+[18.378226] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/ament_index/resource_index/parent_prefix_path/turtlebot4_cpp\n'}
+[18.378337] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/environment/ament_prefix_path.sh\n'}
+[18.378428] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/environment/ament_prefix_path.dsv\n'}
+[18.386130] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/environment/path.sh\n'}
+[18.387001] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/environment/path.dsv\n'}
+[18.387350] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/local_setup.bash\n'}
+[18.387675] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/local_setup.sh\n'}
+[18.388013] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/local_setup.zsh\n'}
+[18.388352] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/local_setup.dsv\n'}
+[18.388678] (turtlebot4_cpp) StdoutLine: {'line': b'-- Installing: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/package.dsv\n'}
+[18.389118] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/ament_index/resource_index/packages/turtlebot4_cpp\n'}
+[18.392664] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/cmake/turtlebot4_cppConfig.cmake\n'}
+[18.392963] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/cmake/turtlebot4_cppConfig-version.cmake\n'}
+[18.394655] (turtlebot4_cpp) StdoutLine: {'line': b'-- Up-to-date: /home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/package.xml\n'}
+[18.394907] (turtlebot4_cpp) CommandEnded: {'returncode': 0}
+[18.428729] (-) TimerEvent: {}
+[18.553923] (-) TimerEvent: {}
+[18.701865] (-) TimerEvent: {}
+[18.810336] (-) TimerEvent: {}
+[18.920313] (-) TimerEvent: {}
+[18.924475] (turtlebot4_cpp) JobEnded: {'identifier': 'turtlebot4_cpp', 'rc': 0}
+[18.927407] (-) EventReactorShutdown: {}

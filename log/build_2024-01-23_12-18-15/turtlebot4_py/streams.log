@@ -1,0 +1,28 @@
+[2.368s] Invoking command in '/home/ros/turtlebot4_ws/build/turtlebot4_py': PYTHONPATH=/home/ros/turtlebot4_ws/build/turtlebot4_py/prefix_override:/home/ros/turtlebot4_ws/install/turtlebot4_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/ros/turtlebot4_ws/build/turtlebot4_py/build --no-deps install_data
+[2.720s] running develop
+[2.728s] /usr/lib/python3/dist-packages/setuptools/command/easy_install.py:158: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+[2.729s]   warnings.warn(
+[2.729s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[2.729s]   warnings.warn(
+[2.981s] running egg_info
+[2.982s] creating turtlebot4_py.egg-info
+[2.982s] writing turtlebot4_py.egg-info/PKG-INFO
+[2.982s] writing dependency_links to turtlebot4_py.egg-info/dependency_links.txt
+[2.983s] writing entry points to turtlebot4_py.egg-info/entry_points.txt
+[2.983s] writing requirements to turtlebot4_py.egg-info/requires.txt
+[2.983s] writing top-level names to turtlebot4_py.egg-info/top_level.txt
+[2.983s] writing manifest file 'turtlebot4_py.egg-info/SOURCES.txt'
+[2.985s] reading manifest file 'turtlebot4_py.egg-info/SOURCES.txt'
+[2.986s] writing manifest file 'turtlebot4_py.egg-info/SOURCES.txt'
+[2.988s] running build_ext
+[2.989s] Creating /home/ros/turtlebot4_ws/install/turtlebot4_py/lib/python3.10/site-packages/turtlebot4-py.egg-link (link to .)
+[2.990s] Installing turtlebot4_py_node script to /home/ros/turtlebot4_ws/install/turtlebot4_py/lib/turtlebot4_py
+[2.991s] 
+[2.991s] Installed /home/ros/turtlebot4_ws/build/turtlebot4_py
+[2.991s] running install_data
+[2.991s] creating /home/ros/turtlebot4_ws/install/turtlebot4_py/share/ament_index
+[2.991s] creating /home/ros/turtlebot4_ws/install/turtlebot4_py/share/ament_index/resource_index
+[2.991s] creating /home/ros/turtlebot4_ws/install/turtlebot4_py/share/ament_index/resource_index/packages
+[2.992s] copying resource/turtlebot4_py -> /home/ros/turtlebot4_ws/install/turtlebot4_py/share/ament_index/resource_index/packages
+[2.992s] copying package.xml -> /home/ros/turtlebot4_ws/install/turtlebot4_py/share/turtlebot4_py
+[3.044s] Invoked command in '/home/ros/turtlebot4_ws/build/turtlebot4_py' returned '0': PYTHONPATH=/home/ros/turtlebot4_ws/build/turtlebot4_py/prefix_override:/home/ros/turtlebot4_ws/install/turtlebot4_py/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/ros/turtlebot4_ws/build/turtlebot4_py/build --no-deps install_data
