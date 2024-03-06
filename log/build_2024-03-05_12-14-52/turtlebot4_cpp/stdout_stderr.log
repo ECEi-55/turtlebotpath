@@ -1,0 +1,17 @@
+[35m[1mConsolidate compiler generated dependencies of target turtlebot4_cpp_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o[0m
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::path()[m[K’:
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:181:18:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator==[m[K’ (operand types are ‘[01m[Kstd::future_status[m[K’ and ‘[01m[Krclcpp::FutureReturnCode[m[K’)
+  181 |       if ([32m[Kstatus[m[K [01;31m[K==[m[K [34m[Krclcpp::FutureReturnCode::SUCCESS[m[K)
+      |           [32m[K~~~~~~[m[K [01;31m[K^~[m[K [34m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |           [32m[K|[m[K                                   [34m[K|[m[K
+      |           [32m[Kstd::future_status[m[K                  [34m[Krclcpp::FutureReturnCode[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:181:18:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Koperator==(rclcpp::FutureReturnCode, rclcpp::FutureReturnCode)[m[K’ (built-in)
+  181 |       if ([01;36m[Kstatus == rclcpp::FutureReturnCode::SUCCESS[m[K)
+      |           [01;36m[K~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:181:18:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::future_status[m[K’ to ‘[01m[Krclcpp::FutureReturnCode[m[K’
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:181:18:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Koperator==(std::future_status, std::future_status)[m[K’ (built-in)
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:181:18:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Krclcpp::FutureReturnCode[m[K’ to ‘[01m[Kstd::future_status[m[K’
+gmake[2]: *** [CMakeFiles/turtlebot4_cpp_node.dir/build.make:76: CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/turtlebot4_cpp_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

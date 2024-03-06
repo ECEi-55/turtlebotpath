@@ -1,0 +1,16 @@
+[0.165s] Invoking command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/turtlebot4_ws/install/turtlebot4_py:/opt/ros/humble /usr/bin/cmake --build /home/ros/turtlebot4_ws/build/turtlebot4_cpp -- -j6 -l6
+[0.391s] [35m[1mConsolidate compiler generated dependencies of target turtlebot4_cpp_node[0m
+[0.590s] [ 50%] [32mBuilding CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o[0m
+[5.986s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:216:2:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+[5.986s]   216 | }
+[5.986s]       |  [01;31m[K^[m[K
+[5.987s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:18:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+[5.987s]    18 | [01;36m[K{[m[K
+[5.987s]       | [01;36m[K^[m[K
+[6.053s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:216:2:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id at end of input
+[6.053s]   216 | }
+[6.053s]       |  [01;31m[K^[m[K
+[10.884s] gmake[2]: *** [CMakeFiles/turtlebot4_cpp_node.dir/build.make:76: CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o] Error 1
+[10.891s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/turtlebot4_cpp_node.dir/all] Error 2
+[10.891s] gmake: *** [Makefile:146: all] Error 2
+[10.898s] Invoked command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/turtlebot4_ws/install/turtlebot4_py:/opt/ros/humble /usr/bin/cmake --build /home/ros/turtlebot4_ws/build/turtlebot4_cpp -- -j6 -l6

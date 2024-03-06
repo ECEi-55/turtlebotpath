@@ -1,0 +1,8 @@
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::path_action()[m[K’:
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:52:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kpath_r[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+   52 |     auto [01;35m[Kpath_r[m[K = irobot_create_msgs::action::RotateAngle_Goal();
+      |          [01;35m[K^~~~~~[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::path()[m[K’:
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:71:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kpath[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+   71 |     auto [01;35m[Kpath[m[K = geometry_msgs::msg::Twist(); // Twist is for velocities
+      |          [01;35m[K^~~~[m[K

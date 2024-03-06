@@ -1,0 +1,11 @@
+[0.287s] Invoking command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/turtlebot4_ws/install/turtlebot4_py:/opt/ros/humble /usr/bin/cmake --build /home/ros/turtlebot4_ws/build/turtlebot4_cpp -- -j6 -l6
+[0.821s] [35m[1mConsolidate compiler generated dependencies of target turtlebot4_cpp_node[0m
+[0.958s] [ 50%] [32mBuilding CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o[0m
+[8.897s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::path()[m[K’:
+[8.927s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:110:32:[m[K [01;31m[Kerror: [m[K‘[01m[Kpath_seg[m[K’ was not declared in this scope
+[8.928s]   110 |       path_publisher_->publish([01;31m[Kpath_seg[m[K);
+[8.928s]       |                                [01;31m[K^~~~~~~~[m[K
+[17.086s] gmake[2]: *** [CMakeFiles/turtlebot4_cpp_node.dir/build.make:76: CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o] Error 1
+[17.087s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/turtlebot4_cpp_node.dir/all] Error 2
+[17.087s] gmake: *** [Makefile:146: all] Error 2
+[17.093s] Invoked command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ros/turtlebot4_ws/install/turtlebot4_py:/opt/ros/humble /usr/bin/cmake --build /home/ros/turtlebot4_ws/build/turtlebot4_cpp -- -j6 -l6

@@ -1,0 +1,12 @@
+[0.000000] (-) TimerEvent: {}
+[0.000254] (-) JobUnselected: {'identifier': 'turtlebot4_base'}
+[0.000410] (-) JobUnselected: {'identifier': 'turtlebot4_bringup'}
+[0.000514] (-) JobUnselected: {'identifier': 'turtlebot4_diagnostics'}
+[0.000540] (-) JobUnselected: {'identifier': 'turtlebot4_py'}
+[0.001022] (-) JobUnselected: {'identifier': 'turtlebot4_robot'}
+[0.001187] (-) JobUnselected: {'identifier': 'turtlebot4_tests'}
+[0.001342] (turtlebot4_cpp) JobQueued: {'identifier': 'turtlebot4_cpp', 'dependencies': OrderedDict()}
+[0.001450] (turtlebot4_cpp) JobStarted: {'identifier': 'turtlebot4_cpp'}
+[0.099138] (turtlebot4_cpp) JobEnded: {'identifier': 'turtlebot4_cpp', 'rc': 0}
+[0.100369] (-) TimerEvent: {}
+[0.100612] (-) EventReactorShutdown: {}

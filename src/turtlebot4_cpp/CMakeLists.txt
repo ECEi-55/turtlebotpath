@@ -8,15 +8,17 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
 find_package(irobot_create_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(turtlebot4_cpp_node src/turtlebot4_cpp_node.cpp src/Vector3.hpp)
-ament_target_dependencies(turtlebot4_cpp_node rclcpp irobot_create_msgs)
+add_executable(turtlebot4_cpp_node src/turtlebot4_cpp_node.cpp)
+ament_target_dependencies(turtlebot4_cpp_node rclcpp irobot_create_msgs rclcpp_action sensor_msgs geometry_msgs)
 target_include_directories(turtlebot4_cpp_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)

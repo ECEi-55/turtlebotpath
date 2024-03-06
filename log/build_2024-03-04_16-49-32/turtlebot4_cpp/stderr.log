@@ -1,0 +1,7 @@
+/usr/bin/ld: CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o: in function `TurtleBot4Node::path()':
+turtlebot4_cpp_node.cpp:(.text._ZN14TurtleBot4Node4pathEv[_ZN14TurtleBot4Node4pathEv]+0x170): undefined reference to `Vector3::normalize()'
+/usr/bin/ld: turtlebot4_cpp_node.cpp:(.text._ZN14TurtleBot4Node4pathEv[_ZN14TurtleBot4Node4pathEv]+0x189): undefined reference to `Vector3::angleBetweenVectors(Vector3 const&) const'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/turtlebot4_cpp_node.dir/build.make:191: turtlebot4_cpp_node] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/turtlebot4_cpp_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

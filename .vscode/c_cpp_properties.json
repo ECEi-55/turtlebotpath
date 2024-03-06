@@ -8,7 +8,8 @@
                 "/usr/include/**",
                 "/opt/ros/humble/include/",
                 "/opt/ros/humble/include/geometry_msgs/**",
-                "/opt/ros/humble/include/geometry_msgs"
+                "/opt/ros/humble/include/geometry_msgs",
+                "/opt/ros/humble/include/rclcpp_action"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

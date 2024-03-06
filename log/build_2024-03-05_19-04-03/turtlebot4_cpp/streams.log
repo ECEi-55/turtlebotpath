@@ -1,0 +1,56 @@
+[0.140s] Invoking command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ros/turtlebot4_ws/build/turtlebot4_cpp -- -j6 -l6
+[0.378s] [35m[1mConsolidate compiler generated dependencies of target turtlebot4_cpp_node[0m
+[0.482s] [ 50%] [32mBuilding CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o[0m
+[4.806s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+[4.808s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[4.808s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[4.808s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[4.808s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[4.808s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[4.809s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[4.809s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[4.811s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[4.811s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[4.811s]                  from [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:9[m[K:
+[4.812s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::battery_state_callback(sensor_msgs::msg::BatteryState)[m[K’:
+[4.812s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:48:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass TurtleBot4Node[m[K’ has no member named ‘[01m[Klogger[m[K’; did you mean ‘[01m[Kget_logger[m[K’?
+[4.812s]    48 |     RCLCPP_INFO(this->[01;31m[Klogger[m[K(), bstate.percentage*100);
+[4.812s]       |                       [01;31m[K^~~~~~[m[K
+[4.812s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:48:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass TurtleBot4Node[m[K’ has no member named ‘[01m[Klogger[m[K’; did you mean ‘[01m[Kget_logger[m[K’?
+[4.812s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:48:5:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[4.812s]    48 |     [01;31m[KRCLCPP_INFO[m[K(this->logger(), bstate.percentage*100);
+[4.812s]       |     [01;31m[K^~~~~~~~~~~[m[K
+[4.812s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:48:5:[m[K [01;31m[Kerror: [m[K‘[01m[K<declaration error>[m[K’ is not a template [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[4.812s]    48 |     [01;31m[KRCLCPP_INFO[m[K(this->logger(), bstate.percentage*100);
+[4.812s]       |     [01;31m[K^~~~~~~~~~~[m[K
+[4.812s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:48:5:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[4.812s]    48 |     [01;31m[KRCLCPP_INFO[m[K(this->logger(), bstate.percentage*100);
+[4.812s]       |     [01;31m[K^~~~~~~~~~~[m[K
+[4.813s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:48:5:[m[K [01;31m[Kerror: [m[K‘[01m[K<declaration error>[m[K’ is not a template [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[4.813s]    48 |     [01;31m[KRCLCPP_INFO[m[K(this->logger(), bstate.percentage*100);
+[4.813s]       |     [01;31m[K^~~~~~~~~~~[m[K
+[4.813s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:48:5:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[4.813s]    48 |     [01;31m[KRCLCPP_INFO[m[K(this->logger(), bstate.percentage*100);
+[4.813s]       |     [01;31m[K^~~~~~~~~~~[m[K
+[4.813s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+[4.813s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+[4.813s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[4.813s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[4.814s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[4.814s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[4.814s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[4.814s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[4.814s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[4.814s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[4.814s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[4.814s]                  from [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:9[m[K:
+[4.814s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:48:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass TurtleBot4Node[m[K’ has no member named ‘[01m[Klogger[m[K’; did you mean ‘[01m[Kget_logger[m[K’?
+[4.814s]    48 |     RCLCPP_INFO(this->[01;31m[Klogger[m[K(), bstate.percentage*100);
+[4.814s]       |                       [01;31m[K^~~~~~[m[K
+[4.814s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:48:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass TurtleBot4Node[m[K’ has no member named ‘[01m[Klogger[m[K’; did you mean ‘[01m[Kget_logger[m[K’?
+[4.814s]    48 |     RCLCPP_INFO(this->[01;31m[Klogger[m[K(), bstate.percentage*100);
+[4.814s]       |                       [01;31m[K^~~~~~[m[K
+[13.473s] gmake[2]: *** [CMakeFiles/turtlebot4_cpp_node.dir/build.make:76: CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o] Error 1
+[13.473s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/turtlebot4_cpp_node.dir/all] Error 2
+[13.474s] gmake: *** [Makefile:146: all] Error 2
+[13.480s] Invoked command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ros/turtlebot4_ws/build/turtlebot4_cpp -- -j6 -l6

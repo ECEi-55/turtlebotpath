@@ -1,0 +1,35 @@
+[0.089s] Invoking command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ros/turtlebot4_ws/build/turtlebot4_cpp -- -j6 -l6
+[0.197s] -- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.467s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.649s] -- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)
+[0.736s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.743s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.754s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.777s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.806s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.915s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.919s] -- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.154s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.455s] -- Found rclcpp_action: 16.0.8 (/opt/ros/humble/share/rclcpp_action/cmake)
+[1.604s] -- Found irobot_create_msgs: 2.1.0 (/opt/ros/humble/share/irobot_create_msgs/cmake)
+[1.838s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.991s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.992s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/ros/turtlebot4_ws/src/turtlebot4_cpp/include>
+[1.992s] -- Configured cppcheck exclude dirs and/or files: 
+[1.993s] -- Added test 'lint_cmake' to check CMake code style
+[1.996s] -- Added test 'uncrustify' to check C / C++ code style
+[1.996s] -- Configured uncrustify additional arguments: 
+[1.997s] -- Added test 'xmllint' to check XML markup files
+[2.001s] -- Configuring done
+[2.106s] -- Generating done
+[2.121s] -- Build files have been written to: /home/ros/turtlebot4_ws/build/turtlebot4_cpp
+[2.229s] [35m[1mConsolidate compiler generated dependencies of target turtlebot4_cpp_node[0m
+[2.332s] [ 50%] [32mBuilding CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o[0m
+[2.726s] [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:18:10:[m[K [01;31m[Kfatal error: [m[Ksensor_msgs/msg/battery_state.hpp: No such file or directory
+[2.726s]    18 | #include [01;31m[K<sensor_msgs/msg/battery_state.hpp>[m[K
+[2.726s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.726s] compilation terminated.
+[2.733s] gmake[2]: *** [CMakeFiles/turtlebot4_cpp_node.dir/build.make:76: CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o] Error 1
+[2.733s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/turtlebot4_cpp_node.dir/all] Error 2
+[2.734s] gmake: *** [Makefile:146: all] Error 2
+[2.743s] Invoked command in '/home/ros/turtlebot4_ws/build/turtlebot4_cpp' returned '2': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/ros/turtlebot4_ws/build/turtlebot4_cpp -- -j6 -l6

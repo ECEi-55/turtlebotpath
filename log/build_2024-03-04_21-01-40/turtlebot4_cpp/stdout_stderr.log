@@ -1,0 +1,19 @@
+[35m[1mConsolidate compiler generated dependencies of target turtlebot4_cpp_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o[0m
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:227:2:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+  227 | }
+      |  [01;31m[K^[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:18:1:[m[K [01;36m[Knote: [m[Kto match this ‘[01m[K{[m[K’
+   18 | [01;36m[K{[m[K
+      | [01;36m[K^[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::result_callback(const rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle>::WrappedResult&)[m[K’:
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:215:39:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = struct irobot_create_msgs::action::RotateAngle_Result_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct irobot_create_msgs::action::RotateAngle_Result_<std::allocator<void> >[m[K’} has no member named ‘[01m[Ksequence[m[K’
+  215 |     for (auto number : result.result->[01;31m[Ksequence[m[K) {
+      |                                       [01;31m[K^~~~~~~~[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K At global scope:
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:227:2:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id at end of input
+  227 | }
+      |  [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/turtlebot4_cpp_node.dir/build.make:76: CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/turtlebot4_cpp_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

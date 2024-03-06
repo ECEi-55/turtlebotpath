@@ -1,0 +1,19 @@
+[35m[1mConsolidate compiler generated dependencies of target turtlebot4_cpp_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o[0m
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::battery_state_callback(sensor_msgs::msg::BatteryState)[m[K’:
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:47:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kstringstream[m[K’ was not declared in this scope; did you mean ‘[01m[Kstd::stringstream[m[K’?
+   47 |     [01;31m[Kstd::strings[m[Ktream ss;
+      |     [01;31m[K^~~~~~~~~~~~[m[K
+      |     [32m[Kstd::stringstream[m[K
+In file included from [01m[K/usr/include/c++/11/bits/shared_ptr.h:52[m[K,
+                 from [01m[K/usr/include/c++/11/memory:77[m[K,
+                 from [01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:4[m[K:
+[01m[K/usr/include/c++/11/iosfwd:156:41:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::stringstream[m[K’ declared here
+  156 |   typedef basic_stringstream<char>      [01;36m[Kstringstream[m[K;
+      |                                         [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:48:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kss[m[K’ was not declared in this scope
+   48 |     [01;31m[Kss[m[K << "Battery Precentage: " << bstate.percentage*100 <<"%";
+      |     [01;31m[K^~[m[K
+gmake[2]: *** [CMakeFiles/turtlebot4_cpp_node.dir/build.make:76: CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/turtlebot4_cpp_node.dir/all] Interrupt
+gmake: *** [Makefile:146: all] Interrupt

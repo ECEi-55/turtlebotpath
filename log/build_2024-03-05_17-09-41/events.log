@@ -1,0 +1,208 @@
+[0.000000] (-) TimerEvent: {}
+[0.002848] (-) JobUnselected: {'identifier': 'turtlebot4_base'}
+[0.003140] (-) JobUnselected: {'identifier': 'turtlebot4_bringup'}
+[0.003215] (-) JobUnselected: {'identifier': 'turtlebot4_diagnostics'}
+[0.003268] (-) JobUnselected: {'identifier': 'turtlebot4_py'}
+[0.003311] (-) JobUnselected: {'identifier': 'turtlebot4_robot'}
+[0.003345] (-) JobUnselected: {'identifier': 'turtlebot4_tests'}
+[0.003574] (turtlebot4_cpp) JobQueued: {'identifier': 'turtlebot4_cpp', 'dependencies': OrderedDict()}
+[0.005615] (turtlebot4_cpp) JobStarted: {'identifier': 'turtlebot4_cpp'}
+[0.129275] (-) TimerEvent: {}
+[0.237631] (turtlebot4_cpp) JobProgress: {'identifier': 'turtlebot4_cpp', 'progress': 'cmake'}
+[0.237839] (-) TimerEvent: {}
+[0.238116] (turtlebot4_cpp) JobProgress: {'identifier': 'turtlebot4_cpp', 'progress': 'build'}
+[0.297409] (turtlebot4_cpp) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ros/turtlebot4_ws/build/turtlebot4_cpp', '--', '-j6', '-l6'], 'cwd': '/home/ros/turtlebot4_ws/build/turtlebot4_cpp', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_CA:en'), ('USER', 'ros'), ('XDG_SESSION_TYPE', 'wayland'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/ros'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('TERM_PROGRAM_VERSION', '1.87.0'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '1420'), ('SYSTEMD_EXEC_PID', '1590'), ('IM_CONFIG_CHECK_ENV', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '49624'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/ros/turtlebot4_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ros'), ('JOURNAL_STREAM', '8:23850'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'ros'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/ros-vm:@/tmp/.ICE-unix/1564,unix/ros-vm:/tmp/.ICE-unix/1564'), ('INVOCATION_ID', 'fa5e168d484a48c4892ce1c5452b182e'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_CA.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('RMW_IMPLEMENTATION', 'rmw_fastrtps_cpp'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.Z1R8J2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-6e17a2ffad.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/home/ros/turtlebot4_ws/install/turtlebot4_py:/home/ros/turtlebot4_ws/install/turtlebot4_cpp:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/ros/turtlebot4_ws/build/turtlebot4_cpp'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ros/turtlebot4_ws/build/turtlebot4_py:/home/ros/turtlebot4_ws/install/turtlebot4_py/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/ros/turtlebot4_ws/install/turtlebot4_cpp:/home/ros/turtlebot4_ws/install/turtlebot4_py:/opt/ros/humble')]), 'shell': False}
+[0.342313] (-) TimerEvent: {}
+[0.423801] (turtlebot4_cpp) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target turtlebot4_cpp_node\x1b[0m\n'}
+[0.443261] (-) TimerEvent: {}
+[0.480558] (turtlebot4_cpp) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o\x1b[0m\n'}
+[0.547757] (-) TimerEvent: {}
+[0.655895] (-) TimerEvent: {}
+[0.760904] (-) TimerEvent: {}
+[1.086169] (-) TimerEvent: {}
+[1.231654] (-) TimerEvent: {}
+[1.362033] (-) TimerEvent: {}
+[1.517613] (-) TimerEvent: {}
+[1.700031] (-) TimerEvent: {}
+[1.808104] (-) TimerEvent: {}
+[1.914662] (-) TimerEvent: {}
+[2.024680] (-) TimerEvent: {}
+[2.129174] (-) TimerEvent: {}
+[2.235669] (-) TimerEvent: {}
+[2.346542] (-) TimerEvent: {}
+[2.449384] (-) TimerEvent: {}
+[2.551509] (-) TimerEvent: {}
+[2.669538] (-) TimerEvent: {}
+[2.782519] (-) TimerEvent: {}
+[2.900828] (-) TimerEvent: {}
+[3.002470] (-) TimerEvent: {}
+[3.103545] (-) TimerEvent: {}
+[3.206040] (-) TimerEvent: {}
+[3.316802] (-) TimerEvent: {}
+[3.417815] (-) TimerEvent: {}
+[3.519707] (-) TimerEvent: {}
+[3.621022] (-) TimerEvent: {}
+[3.722058] (-) TimerEvent: {}
+[3.822798] (-) TimerEvent: {}
+[3.924569] (-) TimerEvent: {}
+[4.026039] (-) TimerEvent: {}
+[4.128175] (-) TimerEvent: {}
+[4.229857] (-) TimerEvent: {}
+[4.332128] (-) TimerEvent: {}
+[4.434669] (-) TimerEvent: {}
+[4.536031] (-) TimerEvent: {}
+[4.637214] (-) TimerEvent: {}
+[4.740164] (-) TimerEvent: {}
+[4.842840] (-) TimerEvent: {}
+[4.950167] (-) TimerEvent: {}
+[5.058734] (-) TimerEvent: {}
+[5.168783] (-) TimerEvent: {}
+[5.272111] (-) TimerEvent: {}
+[5.373767] (-) TimerEvent: {}
+[5.478631] (-) TimerEvent: {}
+[5.597864] (-) TimerEvent: {}
+[5.701888] (-) TimerEvent: {}
+[5.809515] (-) TimerEvent: {}
+[5.916374] (-) TimerEvent: {}
+[6.050520] (-) TimerEvent: {}
+[6.167072] (-) TimerEvent: {}
+[6.267587] (-) TimerEvent: {}
+[6.368236] (-) TimerEvent: {}
+[6.471728] (-) TimerEvent: {}
+[6.576208] (-) TimerEvent: {}
+[6.688581] (-) TimerEvent: {}
+[6.801373] (-) TimerEvent: {}
+[6.902156] (-) TimerEvent: {}
+[7.002791] (-) TimerEvent: {}
+[7.107804] (-) TimerEvent: {}
+[7.209537] (-) TimerEvent: {}
+[7.315077] (-) TimerEvent: {}
+[7.418736] (-) TimerEvent: {}
+[7.520370] (-) TimerEvent: {}
+[7.626568] (-) TimerEvent: {}
+[7.728030] (-) TimerEvent: {}
+[7.759212] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TurtleBot4Node::path_action()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[7.759829] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:79:10:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kvariable \xe2\x80\x98\x1b[01m\x1b[Kpath_d\x1b[m\x1b[K\xe2\x80\x99 set but not used [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable\x07-Wunused-but-set-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[7.760087] (turtlebot4_cpp) StderrLine: {'line': b'   79 |     auto \x1b[01;35m\x1b[Kpath_d\x1b[m\x1b[K = irobot_create_msgs::action::DriveDistance_Goal();\n'}
+[7.760312] (turtlebot4_cpp) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[7.800261] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid TurtleBot4Node::path()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[7.801678] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:135:139:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno match for \xe2\x80\x98\x1b[01m\x1b[Koperator=\x1b[m\x1b[K\xe2\x80\x99 (operand types are \xe2\x80\x98\x1b[01m\x1b[Krclcpp_action::Client<irobot_create_msgs::action::RotateAngle>::FeedbackCallback\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstd::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>\x1b[m\x1b[K\xe2\x80\x99} and \xe2\x80\x98\x1b[01m\x1b[Kstd::_Bind_helper<false, void (TurtleBot4Node::*)(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >), TurtleBot4Node*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type\x1b[m\x1b[K\xe2\x80\x99)\n'}
+[7.801873] (turtlebot4_cpp) StderrLine: {'line': b'  135 | ck_callback = std::bind(&TurtleBot4Node::feedback_angle_callback, this, std::placeholders::_1, std::placeholders::_2\x1b[01;31m\x1b[K)\x1b[m\x1b[K;\n'}
+[7.802029] (turtlebot4_cpp) StderrLine: {'line': b'      |                                                                                                                     \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[7.802627] (turtlebot4_cpp) StderrLine: {'line': b'\n'}
+[7.802792] (turtlebot4_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/functional:59\x1b[m\x1b[K,\n'}
+[7.802946] (turtlebot4_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:3\x1b[m\x1b[K:\n'}
+[7.803094] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/std_function.h:530:9:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Functor> std::function<_Res(_ArgTypes ...)>::_Requires<std::function<_Res(_ArgTypes ...)>::_Callable<_Functor>, std::function<_Res(_ArgTypes ...)>&> std::function<_Res(_ArgTypes ...)>::operator=(_Functor&&) [with _Functor = _Functor; _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.803263] (turtlebot4_cpp) StderrLine: {'line': b'  530 |         \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(_Functor&& __f)\n'}
+[7.803414] (turtlebot4_cpp) StderrLine: {'line': b'      |         \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[7.803558] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/std_function.h:530:9:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[7.803723] (turtlebot4_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/ratio:39\x1b[m\x1b[K,\n'}
+[7.803869] (turtlebot4_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/chrono:39\x1b[m\x1b[K,\n'}
+[7.804015] (turtlebot4_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:2\x1b[m\x1b[K:\n'}
+[7.804167] (turtlebot4_cpp) StderrLine: {'line': b'/usr/include/c++/11/type_traits: In substitution of \xe2\x80\x98\x1b[01m\x1b[Ktemplate<bool _Cond, class _Tp> using __enable_if_t = typename std::enable_if::type [with bool _Cond = false; _Tp = std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>&]\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[7.804353] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/std_function.h:353:8:\x1b[m\x1b[K   required by substitution of \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Res, class ... _ArgTypes> template<class _Cond, class _Tp> using _Requires = std::__enable_if_t<_Cond::value, _Tp> [with _Cond = std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>::_Callable<std::_Bind<void (TurtleBot4Node::*(TurtleBot4Node*, std::_Placeholder<1>, std::_Placeholder<2>))(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>, std::_Bind<void (TurtleBot4Node::*(TurtleBot4Node*, std::_Placeholder<1>, std::_Placeholder<2>))(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>, std::__invoke_result<std::_Bind<void (TurtleBot4Node::*(TurtleBot4Node*, std::_Placeholder<1>, std::_Placeholder<2>))(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>&, std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > > > >; _Tp = std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>&; _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.804555] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/std_function.h:530:2:\x1b[m\x1b[K   required by substitution of \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Functor> std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>::_Requires<std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>::_Callable<_Functor, typename std::enable_if<(! std::is_same<typename std::remove_cv<typename std::remove_reference<_Tp>::type>::type, std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)> >::value), std::decay<_Tp> >::type::type, std::__invoke_result<typename std::enable_if<(! std::is_same<typename std::remove_cv<typename std::remove_reference<_Tp>::type>::type, std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)> >::value), std::decay<_Tp> >::type::type&, std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > > > >, std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>&> std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>::operator=<_Functor>(_Functor&&) [with _Functor = std::_Bind<void (TurtleBot4Node::*(TurtleBot4Node*, std::_Placeholder<1>, std::_Placeholder<2>))(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.804753] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:135:139:\x1b[m\x1b[K   required from here\n'}
+[7.804903] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/type_traits:2205:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno type named \xe2\x80\x98\x1b[01m\x1b[Ktype\x1b[m\x1b[K\xe2\x80\x99 in \xe2\x80\x98\x1b[01m\x1b[Kstruct std::enable_if<false, std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>&>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.805070] (turtlebot4_cpp) StderrLine: {'line': b' 2205 |     using \x1b[01;31m\x1b[K__enable_if_t\x1b[m\x1b[K = typename enable_if<_Cond, _Tp>::type;\n'}
+[7.805230] (turtlebot4_cpp) StderrLine: {'line': b'      |           \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[7.805378] (turtlebot4_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/functional:59\x1b[m\x1b[K,\n'}
+[7.805525] (turtlebot4_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:3\x1b[m\x1b[K:\n'}
+[7.805673] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/std_function.h:540:9:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Functor> std::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::reference_wrapper<_Functor>) [with _Functor = _Functor; _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.805829] (turtlebot4_cpp) StderrLine: {'line': b'  540 |         \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(reference_wrapper<_Functor> __f) noexcept\n'}
+[7.805979] (turtlebot4_cpp) StderrLine: {'line': b'      |         \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[7.806133] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/std_function.h:540:9:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[7.806286] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:135:139:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kstd::_Bind<void (TurtleBot4Node::*(TurtleBot4Node*, std::_Placeholder<1>, std::_Placeholder<2>))(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>\x1b[m\x1b[K\xe2\x80\x99 is not derived from \xe2\x80\x98\x1b[01m\x1b[Kstd::reference_wrapper<_Tp>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.806453] (turtlebot4_cpp) StderrLine: {'line': b'  135 | ck_callback = std::bind(&TurtleBot4Node::feedback_angle_callback, this, std::placeholders::_1, std::placeholders::_2\x1b[01;36m\x1b[K)\x1b[m\x1b[K;\n'}
+[7.806601] (turtlebot4_cpp) StderrLine: {'line': b'      |                                                                                                                     \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[7.806749] (turtlebot4_cpp) StderrLine: {'line': b'\n'}
+[7.806893] (turtlebot4_cpp) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/functional:59\x1b[m\x1b[K,\n'}
+[7.807039] (turtlebot4_cpp) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:3\x1b[m\x1b[K:\n'}
+[7.807196] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/std_function.h:469:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kstd::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(const std::function<_Res(_ArgTypes ...)>&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.807351] (turtlebot4_cpp) StderrLine: {'line': b'  469 |       \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const function& __x)\n'}
+[7.807501] (turtlebot4_cpp) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[7.807647] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/std_function.h:469:33:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[Kstd::_Bind_helper<false, void (TurtleBot4Node::*)(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >), TurtleBot4Node*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kconst std::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>&\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.808083] (turtlebot4_cpp) StderrLine: {'line': b'  469 |       operator=(\x1b[01;36m\x1b[Kconst function& __x\x1b[m\x1b[K)\n'}
+[7.808293] (turtlebot4_cpp) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[7.808455] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/std_function.h:487:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kstd::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::function<_Res(_ArgTypes ...)>&&) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.808674] (turtlebot4_cpp) StderrLine: {'line': b'  487 |       \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(function&& __x) noexcept\n'}
+[7.808840] (turtlebot4_cpp) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[7.809056] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/std_function.h:487:28:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[Kstd::_Bind_helper<false, void (TurtleBot4Node::*)(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >), TurtleBot4Node*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kstd::function<void(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >)>&&\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.809322] (turtlebot4_cpp) StderrLine: {'line': b'  487 |       operator=(\x1b[01;36m\x1b[Kfunction&& __x\x1b[m\x1b[K) noexcept\n'}
+[7.809470] (turtlebot4_cpp) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[7.809608] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/std_function.h:501:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kstd::function<_Res(_ArgTypes ...)>& std::function<_Res(_ArgTypes ...)>::operator=(std::nullptr_t) [with _Res = void; _ArgTypes = {std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<const irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >}; std::nullptr_t = std::nullptr_t]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.809767] (turtlebot4_cpp) StderrLine: {'line': b'  501 |       \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(nullptr_t) noexcept\n'}
+[7.809904] (turtlebot4_cpp) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[7.810036] (turtlebot4_cpp) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/std_function.h:501:17:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[Kstd::_Bind_helper<false, void (TurtleBot4Node::*)(std::shared_ptr<rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle> >, std::shared_ptr<irobot_create_msgs::action::RotateAngle_Feedback_<std::allocator<void> > >), TurtleBot4Node*, const std::_Placeholder<1>&, const std::_Placeholder<2>&>::type\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kstd::nullptr_t\x1b[m\x1b[K\xe2\x80\x99\n'}
+[7.810180] (turtlebot4_cpp) StderrLine: {'line': b'  501 |       operator=(\x1b[01;36m\x1b[Knullptr_t\x1b[m\x1b[K) noexcept\n'}
+[7.810315] (turtlebot4_cpp) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[7.829191] (-) TimerEvent: {}
+[7.930281] (-) TimerEvent: {}
+[8.035093] (-) TimerEvent: {}
+[8.140759] (-) TimerEvent: {}
+[8.242502] (-) TimerEvent: {}
+[8.343756] (-) TimerEvent: {}
+[8.444681] (-) TimerEvent: {}
+[8.547557] (-) TimerEvent: {}
+[8.648499] (-) TimerEvent: {}
+[8.750149] (-) TimerEvent: {}
+[8.853929] (-) TimerEvent: {}
+[8.960652] (-) TimerEvent: {}
+[9.062811] (-) TimerEvent: {}
+[9.163466] (-) TimerEvent: {}
+[9.264580] (-) TimerEvent: {}
+[9.364951] (-) TimerEvent: {}
+[9.468613] (-) TimerEvent: {}
+[9.570032] (-) TimerEvent: {}
+[9.671655] (-) TimerEvent: {}
+[9.772555] (-) TimerEvent: {}
+[9.874178] (-) TimerEvent: {}
+[9.975772] (-) TimerEvent: {}
+[10.077108] (-) TimerEvent: {}
+[10.178661] (-) TimerEvent: {}
+[10.283388] (-) TimerEvent: {}
+[10.384636] (-) TimerEvent: {}
+[10.486672] (-) TimerEvent: {}
+[10.587794] (-) TimerEvent: {}
+[10.688883] (-) TimerEvent: {}
+[10.790655] (-) TimerEvent: {}
+[10.891185] (-) TimerEvent: {}
+[10.995923] (-) TimerEvent: {}
+[11.096510] (-) TimerEvent: {}
+[11.246995] (-) TimerEvent: {}
+[11.348940] (-) TimerEvent: {}
+[11.451074] (-) TimerEvent: {}
+[11.621538] (-) TimerEvent: {}
+[11.728664] (-) TimerEvent: {}
+[11.830700] (-) TimerEvent: {}
+[11.933633] (-) TimerEvent: {}
+[12.034277] (-) TimerEvent: {}
+[12.135186] (-) TimerEvent: {}
+[12.238281] (-) TimerEvent: {}
+[12.338841] (-) TimerEvent: {}
+[12.439642] (-) TimerEvent: {}
+[12.540714] (-) TimerEvent: {}
+[12.641534] (-) TimerEvent: {}
+[12.742342] (-) TimerEvent: {}
+[12.844561] (-) TimerEvent: {}
+[12.946274] (-) TimerEvent: {}
+[13.048350] (-) TimerEvent: {}
+[13.149028] (-) TimerEvent: {}
+[13.250380] (-) TimerEvent: {}
+[13.356590] (-) TimerEvent: {}
+[13.457474] (-) TimerEvent: {}
+[13.559363] (-) TimerEvent: {}
+[13.662695] (-) TimerEvent: {}
+[13.764363] (-) TimerEvent: {}
+[13.865621] (-) TimerEvent: {}
+[13.966926] (-) TimerEvent: {}
+[14.077527] (-) TimerEvent: {}
+[14.108405] (turtlebot4_cpp) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/turtlebot4_cpp_node.dir/build.make:76: CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o] Error 1\n'}
+[14.108926] (turtlebot4_cpp) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/turtlebot4_cpp_node.dir/all] Error 2\n'}
+[14.113132] (turtlebot4_cpp) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[14.115686] (turtlebot4_cpp) CommandEnded: {'returncode': 2}
+[14.177883] (-) TimerEvent: {}
+[14.278768] (-) TimerEvent: {}
+[14.373663] (turtlebot4_cpp) JobEnded: {'identifier': 'turtlebot4_cpp', 'rc': 2}
+[14.385121] (-) TimerEvent: {}
+[14.400577] (-) EventReactorShutdown: {}
