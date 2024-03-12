@@ -29,7 +29,7 @@ public:
   {
     // Subscribe to the /interface_buttons topic
     interface_buttons_subscriber_ = this->create_subscription<irobot_create_msgs::msg::InterfaceButtons>("/interface_buttons", rclcpp::SensorDataQoS(), std::bind(&TurtleBot4Node::interface_buttons_callback, this, std::placeholders::_1));
-    battery_state_subscriber_ = this->create_subscription<sensor_msgs::msg::BatteryState>("/battery_state", rclcpp::SensorDataQoS(), std::bind(&TurtleBot4Node::battery_state_callback, this, std::placeholders::_1));
+    //battery_state_subscriber_ = this->create_subscription<sensor_msgs::msg::BatteryState>("/battery_state", rclcpp::SensorDataQoS(), std::bind(&TurtleBot4Node::battery_state_callback, this, std::placeholders::_1));
     this->pose_publisher_ = this->create_publisher<geometry_msgs::msg::PoseStamped>("/robot_pose", rclcpp::SensorDataQoS());
     this->path_publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", rclcpp::SensorDataQoS());
     this->drive_ptr_= rclcpp_action::create_client<irobot_create_msgs::action::DriveDistance>(this, "/drive_distance");
@@ -39,9 +39,11 @@ public:
 
 private:
   // Interface buttons subscription callback
-
+  #define NUMPOINTS 7
+  #define OFFSET 0.23 // meters
+  bool wait_for_callback_rotate = false;
   float points[21][2] = {{0.9,0.27},{1,0.58},{0.855,0.70},{0.745,0.38},{0.36,0.293},{0.5,0.171},{0.905,0.265}};
-  float pointst[21][2] = {{0,0},{0,1},{1,1},{0,0}};
+  float pointst[21][2] = {{0,0},{0,1},{0.5,0.5},{0.5,0},{0,0}};
 
   void battery_state_callback(const sensor_msgs::msg::BatteryState bstate){
     std::stringstream ss;
@@ -113,22 +115,10 @@ private:
 
     //take the first point, and assume that's the current position
     float current_pos[2];
-    current_pos[0] = points[0][0];
-    current_pos[1] = points[0][1];
-    // Vector3 current_dir(0,1,0);
-    // current_dir.data[1] = 1;
+    current_pos[0] = pointst[0][0];
+    current_pos[1] = pointst[0][1];
 
     float current_dir[2] = {0,1};
-
-    // auto path = geometry_msgs::msg::Twist(); // Twist is for velocities
-
-    // path.linear.x = 0;
-    // path.linear.y = 0;
-    // path.linear.z = 0;
-
-    // path.angular.x = 0;
-    // path.angular.y = 0;
-    // path.angular.z = 0;
 
     auto path_d = irobot_create_msgs::action::DriveDistance_Goal();
     auto drive_opts = rclcpp_action::Client<irobot_create_msgs::action::DriveDistance>::SendGoalOptions();
@@ -151,11 +141,11 @@ private:
 
     // then set it to be the new current position.
 
-    for(int i = 1; i < 7; i++){
+    for(int i = 1; i < NUMPOINTS; i++){
      
       float next_pos[2];
-      next_pos[0] = points[i][0];
-      next_pos[1] = points[i][1];
+      next_pos[0] = pointst[i][0];
+      next_pos[1] = pointst[i][1];
 
       std::stringstream log1;
       log1 << "From: " << current_pos[0] << ", " << current_pos[1] << " to " << next_pos[0] << ", " << next_pos[1];
@@ -194,12 +184,6 @@ private:
       path_d.distance = mag;
 
       // path_n.goal_pose.pose.orientation.x = 0;
-      // path_n.goal_pose.pose.orientation.y = 0;
-      // path_n.goal_pose.pose.orientation.z = 0;
-      // path_n.goal_pose.pose.orientation.w = ang;
-      // path_n.goal_pose.pose.position.x = x;
-      // path_n.goal_pose.pose.position.y = y;
-      // path_n.goal_pose.pose.position.z = 0;
 
       // this->nav_ptr_->async_send_goal(path_n);
       if(this->rotate_ptr_->action_server_is_ready()){
@@ -208,7 +192,7 @@ private:
         RCLCPP_ERROR(this->get_logger(), "Rotate action server not ready");
       }
 
-      rclcpp::sleep_for(5s);
+      rclcpp::sleep_for(6s);
 
       if(this->rotate_ptr_->action_server_is_ready()){
         this->drive_ptr_->async_send_goal(path_d, drive_opts);
@@ -216,21 +200,19 @@ private:
         RCLCPP_ERROR(this->get_logger(), "Drive action server not ready");
       }
 
-      // path.angular.z = (ang*180/3.1415); //why are we multiplying this by 2? 
-      // path.linear.x = 0;
-      // path_publisher_->publish(path);
-      // sleep(2);
-      // path.angular.z = 0;
-      // path.linear.x = mag*10;
+      //rotate -> drive -> rotate -> drive for offset
+      // float something = next_pos 
 
-      // path_publisher_->publish(path);
+
+
       RCLCPP_INFO(this->get_logger(), log.str().c_str());
       
       current_pos[0] = next_pos[0];
       current_pos[1] = next_pos[1];
       current_dir[0] = delta_xn;
       current_dir[1] = delta_yn;
-      rclcpp::sleep_for(5s);
+
+      rclcpp::sleep_for(2s);
     }
 
   }
@@ -265,7 +247,7 @@ private:
     ss << "\n\tPosition \n\t\tx: " << result.result->pose.pose.position.x << " y: " << result.result->pose.pose.position.y << " z: " << result.result->pose.pose.position.z;
     RCLCPP_INFO(this->get_logger(), ss.str().c_str());
     result.result->pose.header.frame_id = "odom_angle";
-    this->pose_publisher_->publish(result.result->pose);
+    this->pose_publisher_->publish(result.result->pose);  
   }
 
   void goal_angle_response_callback(const rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle>::SharedPtr & goal_handle)
@@ -292,6 +274,7 @@ private:
         break;
       case rclcpp_action::ResultCode::ABORTED:
         RCLCPP_ERROR(this->get_logger(), "Drive Goal was aborted");
+        
         return;
       case rclcpp_action::ResultCode::CANCELED:
         RCLCPP_ERROR(this->get_logger(), "Drive Goal was canceled");

@@ -12,6 +12,7 @@ find_package(rclcpp_action REQUIRED)
 find_package(irobot_create_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(turtlebot4_node_interfaces REQUIRED)
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
@@ -24,8 +25,44 @@ target_include_directories(turtlebot4_cpp_node PUBLIC
   $<INSTALL_INTERFACE:include>)
 target_compile_features(turtlebot4_cpp_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
-install(TARGETS turtlebot4_cpp_node
+# install(TARGETS turtlebot4_cpp_node
+#   DESTINATION lib/${PROJECT_NAME})
+
+add_executable(turtlebot4_main_node src/turtlebot4_main_node.cpp)
+ament_target_dependencies(turtlebot4_main_node rclcpp irobot_create_msgs rclcpp_action sensor_msgs geometry_msgs)
+target_include_directories(turtlebot4_main_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_compile_features(turtlebot4_main_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+add_executable(turtlebot4_goal_node src/turtlebot4_goal_node.cpp)
+ament_target_dependencies(turtlebot4_goal_node rclcpp irobot_create_msgs rclcpp_action sensor_msgs geometry_msgs turtlebot4_node_interfaces)
+target_include_directories(turtlebot4_goal_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_compile_features(turtlebot4_goal_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+add_executable(turtlebot4_drive_node src/turtlebot4_drive_node.cpp)
+ament_target_dependencies(turtlebot4_drive_node rclcpp irobot_create_msgs rclcpp_action sensor_msgs geometry_msgs turtlebot4_node_interfaces)
+target_include_directories(turtlebot4_drive_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_compile_features(turtlebot4_drive_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+add_executable(turtlebot4_rotate_node src/turtlebot4_rotate_node.cpp)
+ament_target_dependencies(turtlebot4_rotate_node rclcpp irobot_create_msgs rclcpp_action sensor_msgs geometry_msgs turtlebot4_node_interfaces)
+target_include_directories(turtlebot4_rotate_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_compile_features(turtlebot4_rotate_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+install(TARGETS 
+  turtlebot4_drive_node
+  turtlebot4_rotate_node
+  turtlebot4_goal_node
+  turtlebot4_main_node
   DESTINATION lib/${PROJECT_NAME})
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

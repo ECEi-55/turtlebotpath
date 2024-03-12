@@ -34,6 +34,11 @@ AMENT_CMAKE_UNINSTALL_TARGET:BOOL=ON
 //The path where test results are generated
 AMENT_TEST_RESULTS_DIR:PATH=/home/ros/turtlebot4_ws/build/turtlebot4_cpp/test_results
 
+//Global flag to cause add_library() to create shared libraries
+// if on. If set to true, this will cause all libraries to be built
+// shared unless the library was explicitly added as a static library.
+BUILD_SHARED_LIBS:BOOL=ON
+
 //Build the testing tree.
 BUILD_TESTING:BOOL=ON
 
@@ -263,6 +268,18 @@ PKG_CONFIG_ARGN:STRING=
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
 //Path to a program.
+PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3
+
+//Path to a file.
+PYTHON_INCLUDE_DIR:PATH=/usr/include/python3.10
+
+//Path to a library.
+PYTHON_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpython3.10.so
+
+//Path to a library.
+PYTHON_LIBRARY_DEBUG:FILEPATH=PYTHON_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a program.
 Python3_EXECUTABLE:FILEPATH=/usr/bin/python3
 
 //Select ROS middleware implementation to link against
@@ -278,7 +295,10 @@ TinyXML2_DIR:PATH=TinyXML2_DIR-NOTFOUND
 Vector3_DIR:PATH=Vector3_DIR-NOTFOUND
 
 //Path to a library.
-_lib:FILEPATH=/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_cpp.so
+_lib:FILEPATH=/home/ros/turtlebot4_ws/install/turtlebot4_node_interfaces/lib/libturtlebot4_node_interfaces__rosidl_typesupport_fastrtps_cpp.so
+
+//Path to a file.
+_numpy_h:FILEPATH=/usr/include/python3.10/numpy/numpyconfig.h
 
 //The directory containing a CMake configuration file for action_msgs.
 action_msgs_DIR:PATH=/opt/ros/humble/share/action_msgs/cmake
@@ -291,6 +311,9 @@ ament_cmake_core_DIR:PATH=/opt/ros/humble/share/ament_cmake_core/cmake
 
 //The directory containing a CMake configuration file for ament_cmake_cppcheck.
 ament_cmake_cppcheck_DIR:PATH=/opt/ros/humble/share/ament_cmake_cppcheck/cmake
+
+//The directory containing a CMake configuration file for ament_cmake_cpplint.
+ament_cmake_cpplint_DIR:PATH=/opt/ros/humble/share/ament_cmake_cpplint/cmake
 
 //The directory containing a CMake configuration file for ament_cmake_export_definitions.
 ament_cmake_export_definitions_DIR:PATH=/opt/ros/humble/share/ament_cmake_export_definitions/cmake
@@ -319,6 +342,12 @@ ament_cmake_flake8_DIR:PATH=/opt/ros/humble/share/ament_cmake_flake8/cmake
 //The directory containing a CMake configuration file for ament_cmake_gen_version_h.
 ament_cmake_gen_version_h_DIR:PATH=/opt/ros/humble/share/ament_cmake_gen_version_h/cmake
 
+//The directory containing a CMake configuration file for ament_cmake_gmock.
+ament_cmake_gmock_DIR:PATH=/opt/ros/humble/share/ament_cmake_gmock/cmake
+
+//The directory containing a CMake configuration file for ament_cmake_gtest.
+ament_cmake_gtest_DIR:PATH=/opt/ros/humble/share/ament_cmake_gtest/cmake
+
 //The directory containing a CMake configuration file for ament_cmake_include_directories.
 ament_cmake_include_directories_DIR:PATH=/opt/ros/humble/share/ament_cmake_include_directories/cmake
 
@@ -331,8 +360,14 @@ ament_cmake_lint_cmake_DIR:PATH=/opt/ros/humble/share/ament_cmake_lint_cmake/cma
 //The directory containing a CMake configuration file for ament_cmake_pep257.
 ament_cmake_pep257_DIR:PATH=/opt/ros/humble/share/ament_cmake_pep257/cmake
 
+//The directory containing a CMake configuration file for ament_cmake_pytest.
+ament_cmake_pytest_DIR:PATH=/opt/ros/humble/share/ament_cmake_pytest/cmake
+
 //The directory containing a CMake configuration file for ament_cmake_python.
 ament_cmake_python_DIR:PATH=/opt/ros/humble/share/ament_cmake_python/cmake
+
+//The directory containing a CMake configuration file for ament_cmake_ros.
+ament_cmake_ros_DIR:PATH=/opt/ros/humble/share/ament_cmake_ros/cmake
 
 //The directory containing a CMake configuration file for ament_cmake_target_dependencies.
 ament_cmake_target_dependencies_DIR:PATH=/opt/ros/humble/share/ament_cmake_target_dependencies/cmake
@@ -352,6 +387,12 @@ ament_cmake_xmllint_DIR:PATH=/opt/ros/humble/share/ament_cmake_xmllint/cmake
 //Path to a program.
 ament_cppcheck_BIN:FILEPATH=/opt/ros/humble/bin/ament_cppcheck
 
+//Path to a program.
+ament_cpplint_BIN:FILEPATH=/opt/ros/humble/bin/ament_cpplint
+
+//Path to a program.
+ament_flake8_BIN:FILEPATH=/opt/ros/humble/bin/ament_flake8
+
 //The directory containing a CMake configuration file for ament_index_cpp.
 ament_index_cpp_DIR:PATH=/opt/ros/humble/share/ament_index_cpp/cmake
 
@@ -363,6 +404,9 @@ ament_lint_cmake_BIN:FILEPATH=/opt/ros/humble/bin/ament_lint_cmake
 
 //The directory containing a CMake configuration file for ament_lint_common.
 ament_lint_common_DIR:PATH=/opt/ros/humble/share/ament_lint_common/cmake
+
+//Path to a program.
+ament_pep257_BIN:FILEPATH=/opt/ros/humble/bin/ament_pep257
 
 //Path to a program.
 ament_uncrustify_BIN:FILEPATH=/opt/ros/humble/bin/ament_uncrustify
@@ -405,6 +449,9 @@ pkgcfg_lib__OPENSSL_crypto:FILEPATH=/usr/lib/x86_64-linux-gnu/libcrypto.so
 
 //Path to a library.
 pkgcfg_lib__OPENSSL_ssl:FILEPATH=/usr/lib/x86_64-linux-gnu/libssl.so
+
+//The directory containing a CMake configuration file for python_cmake_module.
+python_cmake_module_DIR:PATH=/opt/ros/humble/share/python_cmake_module/cmake
 
 //The directory containing a CMake configuration file for rcl.
 rcl_DIR:PATH=/opt/ros/humble/share/rcl/cmake
@@ -463,6 +510,9 @@ rosidl_adapter_DIR:PATH=/opt/ros/humble/share/rosidl_adapter/cmake
 //The directory containing a CMake configuration file for rosidl_cmake.
 rosidl_cmake_DIR:PATH=/opt/ros/humble/share/rosidl_cmake/cmake
 
+//The directory containing a CMake configuration file for rosidl_default_generators.
+rosidl_default_generators_DIR:PATH=/opt/ros/humble/share/rosidl_default_generators/cmake
+
 //The directory containing a CMake configuration file for rosidl_default_runtime.
 rosidl_default_runtime_DIR:PATH=/opt/ros/humble/share/rosidl_default_runtime/cmake
 
@@ -471,6 +521,9 @@ rosidl_generator_c_DIR:PATH=/opt/ros/humble/share/rosidl_generator_c/cmake
 
 //The directory containing a CMake configuration file for rosidl_generator_cpp.
 rosidl_generator_cpp_DIR:PATH=/opt/ros/humble/share/rosidl_generator_cpp/cmake
+
+//The directory containing a CMake configuration file for rosidl_generator_py.
+rosidl_generator_py_DIR:PATH=/opt/ros/humble/share/rosidl_generator_py/cmake
 
 //The directory containing a CMake configuration file for rosidl_runtime_c.
 rosidl_runtime_c_DIR:PATH=/opt/ros/humble/share/rosidl_runtime_c/cmake
@@ -520,11 +573,50 @@ tracetools_DIR:PATH=/opt/ros/humble/share/tracetools/cmake
 //Value Computed by CMake
 turtlebot4_cpp_BINARY_DIR:STATIC=/home/ros/turtlebot4_ws/build/turtlebot4_cpp
 
+//The directory containing a CMake configuration file for turtlebot4_cpp.
+turtlebot4_cpp_DIR:PATH=/home/ros/turtlebot4_ws/install/turtlebot4_cpp/share/turtlebot4_cpp/cmake
+
 //Value Computed by CMake
 turtlebot4_cpp_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 turtlebot4_cpp_SOURCE_DIR:STATIC=/home/ros/turtlebot4_ws/src/turtlebot4_cpp
+
+//Dependencies for the target
+turtlebot4_cpp__rosidl_generator_c_LIB_DEPENDS:STATIC=general;irobot_create_msgs::irobot_create_msgs__rosidl_generator_c;general;action_msgs::action_msgs__rosidl_generator_c;general;builtin_interfaces::builtin_interfaces__rosidl_generator_c;general;geometry_msgs::geometry_msgs__rosidl_generator_c;general;std_msgs::std_msgs__rosidl_generator_c;general;rosidl_runtime_c::rosidl_runtime_c;general;rcutils::rcutils;
+
+//Dependencies for the target
+turtlebot4_cpp__rosidl_generator_py_LIB_DEPENDS:STATIC=general;turtlebot4_cpp__rosidl_generator_c;general;/usr/lib/x86_64-linux-gnu/libpython3.10.so;general;turtlebot4_cpp__rosidl_typesupport_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_generator_py;general;action_msgs::action_msgs__rosidl_generator_py;general;builtin_interfaces::builtin_interfaces__rosidl_generator_py;general;geometry_msgs::geometry_msgs__rosidl_generator_py;general;std_msgs::std_msgs__rosidl_generator_py;
+
+//Dependencies for the target
+turtlebot4_cpp__rosidl_typesupport_c_LIB_DEPENDS:STATIC=general;turtlebot4_cpp__rosidl_generator_c;general;rosidl_runtime_c::rosidl_runtime_c;general;rosidl_typesupport_c::rosidl_typesupport_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_c;general;action_msgs::action_msgs__rosidl_typesupport_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_c;general;std_msgs::std_msgs__rosidl_typesupport_c;
+
+//Dependencies for the target
+turtlebot4_cpp__rosidl_typesupport_c__pyext_LIB_DEPENDS:STATIC=general;turtlebot4_cpp__rosidl_generator_py;general;/usr/lib/x86_64-linux-gnu/libpython3.10.so;general;turtlebot4_cpp__rosidl_typesupport_c;general;turtlebot4_cpp__rosidl_typesupport_c;general;rosidl_runtime_c::rosidl_runtime_c;general;rosidl_typesupport_c::rosidl_typesupport_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_generator_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_fastrtps_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_introspection_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_fastrtps_cpp;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_introspection_cpp;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_cpp;general;irobot_create_msgs::irobot_create_msgs__rosidl_generator_py;general;action_msgs::action_msgs__rosidl_generator_c;general;action_msgs::action_msgs__rosidl_typesupport_fastrtps_c;general;action_msgs::action_msgs__rosidl_typesupport_fastrtps_cpp;general;action_msgs::action_msgs__rosidl_typesupport_introspection_c;general;action_msgs::action_msgs__rosidl_typesupport_c;general;action_msgs::action_msgs__rosidl_typesupport_introspection_cpp;general;action_msgs::action_msgs__rosidl_typesupport_cpp;general;action_msgs::action_msgs__rosidl_generator_py;general;builtin_interfaces::builtin_interfaces__rosidl_generator_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_fastrtps_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_introspection_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_fastrtps_cpp;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_introspection_cpp;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_cpp;general;builtin_interfaces::builtin_interfaces__rosidl_generator_py;general;geometry_msgs::geometry_msgs__rosidl_generator_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_fastrtps_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_introspection_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_fastrtps_cpp;general;geometry_msgs::geometry_msgs__rosidl_typesupport_introspection_cpp;general;geometry_msgs::geometry_msgs__rosidl_typesupport_cpp;general;geometry_msgs::geometry_msgs__rosidl_generator_py;general;std_msgs::std_msgs__rosidl_generator_c;general;std_msgs::std_msgs__rosidl_typesupport_fastrtps_c;general;std_msgs::std_msgs__rosidl_typesupport_fastrtps_cpp;general;std_msgs::std_msgs__rosidl_typesupport_introspection_c;general;std_msgs::std_msgs__rosidl_typesupport_c;general;std_msgs::std_msgs__rosidl_typesupport_introspection_cpp;general;std_msgs::std_msgs__rosidl_typesupport_cpp;general;std_msgs::std_msgs__rosidl_generator_py;general;rosidl_runtime_c::rosidl_runtime_c;general;/opt/ros/humble/lib/librmw.so;general;rcutils::rcutils;general;rosidl_runtime_c::rosidl_runtime_c;
+
+//Dependencies for the target
+turtlebot4_cpp__rosidl_typesupport_cpp_LIB_DEPENDS:STATIC=general;rosidl_runtime_c::rosidl_runtime_c;general;rosidl_typesupport_cpp::rosidl_typesupport_cpp;general;rosidl_typesupport_c::rosidl_typesupport_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_cpp;general;action_msgs::action_msgs__rosidl_typesupport_cpp;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_cpp;general;geometry_msgs::geometry_msgs__rosidl_typesupport_cpp;general;std_msgs::std_msgs__rosidl_typesupport_cpp;
+
+//Dependencies for the target
+turtlebot4_cpp__rosidl_typesupport_fastrtps_c_LIB_DEPENDS:STATIC=general;fastcdr;general;rosidl_runtime_c::rosidl_runtime_c;general;rosidl_typesupport_fastrtps_cpp::rosidl_typesupport_fastrtps_cpp;general;rosidl_typesupport_fastrtps_c::rosidl_typesupport_fastrtps_c;general;turtlebot4_cpp__rosidl_generator_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_fastrtps_c;general;action_msgs::action_msgs__rosidl_typesupport_fastrtps_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_fastrtps_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_fastrtps_c;general;std_msgs::std_msgs__rosidl_typesupport_fastrtps_c;
+
+//Dependencies for the target
+turtlebot4_cpp__rosidl_typesupport_fastrtps_c__pyext_LIB_DEPENDS:STATIC=general;turtlebot4_cpp__rosidl_generator_py;general;/usr/lib/x86_64-linux-gnu/libpython3.10.so;general;turtlebot4_cpp__rosidl_typesupport_fastrtps_c;general;turtlebot4_cpp__rosidl_typesupport_c;general;rosidl_runtime_c::rosidl_runtime_c;general;rosidl_typesupport_c::rosidl_typesupport_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_generator_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_fastrtps_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_introspection_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_fastrtps_cpp;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_introspection_cpp;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_cpp;general;irobot_create_msgs::irobot_create_msgs__rosidl_generator_py;general;action_msgs::action_msgs__rosidl_generator_c;general;action_msgs::action_msgs__rosidl_typesupport_fastrtps_c;general;action_msgs::action_msgs__rosidl_typesupport_fastrtps_cpp;general;action_msgs::action_msgs__rosidl_typesupport_introspection_c;general;action_msgs::action_msgs__rosidl_typesupport_c;general;action_msgs::action_msgs__rosidl_typesupport_introspection_cpp;general;action_msgs::action_msgs__rosidl_typesupport_cpp;general;action_msgs::action_msgs__rosidl_generator_py;general;builtin_interfaces::builtin_interfaces__rosidl_generator_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_fastrtps_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_introspection_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_fastrtps_cpp;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_introspection_cpp;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_cpp;general;builtin_interfaces::builtin_interfaces__rosidl_generator_py;general;geometry_msgs::geometry_msgs__rosidl_generator_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_fastrtps_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_introspection_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_fastrtps_cpp;general;geometry_msgs::geometry_msgs__rosidl_typesupport_introspection_cpp;general;geometry_msgs::geometry_msgs__rosidl_typesupport_cpp;general;geometry_msgs::geometry_msgs__rosidl_generator_py;general;std_msgs::std_msgs__rosidl_generator_c;general;std_msgs::std_msgs__rosidl_typesupport_fastrtps_c;general;std_msgs::std_msgs__rosidl_typesupport_fastrtps_cpp;general;std_msgs::std_msgs__rosidl_typesupport_introspection_c;general;std_msgs::std_msgs__rosidl_typesupport_c;general;std_msgs::std_msgs__rosidl_typesupport_introspection_cpp;general;std_msgs::std_msgs__rosidl_typesupport_cpp;general;std_msgs::std_msgs__rosidl_generator_py;general;rosidl_runtime_c::rosidl_runtime_c;general;/opt/ros/humble/lib/librmw.so;general;rcutils::rcutils;general;rosidl_runtime_c::rosidl_runtime_c;
+
+//Dependencies for the target
+turtlebot4_cpp__rosidl_typesupport_fastrtps_cpp_LIB_DEPENDS:STATIC=general;fastcdr;general;rmw::rmw;general;rosidl_runtime_c::rosidl_runtime_c;general;rosidl_typesupport_fastrtps_cpp::rosidl_typesupport_fastrtps_cpp;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_fastrtps_cpp;general;action_msgs::action_msgs__rosidl_typesupport_fastrtps_cpp;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_fastrtps_cpp;general;geometry_msgs::geometry_msgs__rosidl_typesupport_fastrtps_cpp;general;std_msgs::std_msgs__rosidl_typesupport_fastrtps_cpp;
+
+//Dependencies for the target
+turtlebot4_cpp__rosidl_typesupport_introspection_c_LIB_DEPENDS:STATIC=general;turtlebot4_cpp__rosidl_generator_c;general;rosidl_typesupport_introspection_c::rosidl_typesupport_introspection_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_introspection_c;general;action_msgs::action_msgs__rosidl_typesupport_introspection_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_introspection_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_introspection_c;general;std_msgs::std_msgs__rosidl_typesupport_introspection_c;
+
+//Dependencies for the target
+turtlebot4_cpp__rosidl_typesupport_introspection_c__pyext_LIB_DEPENDS:STATIC=general;turtlebot4_cpp__rosidl_generator_py;general;/usr/lib/x86_64-linux-gnu/libpython3.10.so;general;turtlebot4_cpp__rosidl_typesupport_introspection_c;general;turtlebot4_cpp__rosidl_typesupport_c;general;rosidl_runtime_c::rosidl_runtime_c;general;rosidl_typesupport_c::rosidl_typesupport_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_generator_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_fastrtps_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_introspection_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_c;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_fastrtps_cpp;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_introspection_cpp;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_cpp;general;irobot_create_msgs::irobot_create_msgs__rosidl_generator_py;general;action_msgs::action_msgs__rosidl_generator_c;general;action_msgs::action_msgs__rosidl_typesupport_fastrtps_c;general;action_msgs::action_msgs__rosidl_typesupport_fastrtps_cpp;general;action_msgs::action_msgs__rosidl_typesupport_introspection_c;general;action_msgs::action_msgs__rosidl_typesupport_c;general;action_msgs::action_msgs__rosidl_typesupport_introspection_cpp;general;action_msgs::action_msgs__rosidl_typesupport_cpp;general;action_msgs::action_msgs__rosidl_generator_py;general;builtin_interfaces::builtin_interfaces__rosidl_generator_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_fastrtps_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_introspection_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_c;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_fastrtps_cpp;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_introspection_cpp;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_cpp;general;builtin_interfaces::builtin_interfaces__rosidl_generator_py;general;geometry_msgs::geometry_msgs__rosidl_generator_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_fastrtps_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_introspection_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_c;general;geometry_msgs::geometry_msgs__rosidl_typesupport_fastrtps_cpp;general;geometry_msgs::geometry_msgs__rosidl_typesupport_introspection_cpp;general;geometry_msgs::geometry_msgs__rosidl_typesupport_cpp;general;geometry_msgs::geometry_msgs__rosidl_generator_py;general;std_msgs::std_msgs__rosidl_generator_c;general;std_msgs::std_msgs__rosidl_typesupport_fastrtps_c;general;std_msgs::std_msgs__rosidl_typesupport_fastrtps_cpp;general;std_msgs::std_msgs__rosidl_typesupport_introspection_c;general;std_msgs::std_msgs__rosidl_typesupport_c;general;std_msgs::std_msgs__rosidl_typesupport_introspection_cpp;general;std_msgs::std_msgs__rosidl_typesupport_cpp;general;std_msgs::std_msgs__rosidl_generator_py;general;rosidl_runtime_c::rosidl_runtime_c;general;/opt/ros/humble/lib/librmw.so;general;rcutils::rcutils;general;rosidl_runtime_c::rosidl_runtime_c;
+
+//Dependencies for the target
+turtlebot4_cpp__rosidl_typesupport_introspection_cpp_LIB_DEPENDS:STATIC=general;rosidl_runtime_c::rosidl_runtime_c;general;rosidl_typesupport_introspection_cpp::rosidl_typesupport_introspection_cpp;general;irobot_create_msgs::irobot_create_msgs__rosidl_typesupport_introspection_cpp;general;action_msgs::action_msgs__rosidl_typesupport_introspection_cpp;general;builtin_interfaces::builtin_interfaces__rosidl_typesupport_introspection_cpp;general;geometry_msgs::geometry_msgs__rosidl_typesupport_introspection_cpp;general;std_msgs::std_msgs__rosidl_typesupport_introspection_cpp;
+
+//The directory containing a CMake configuration file for turtlebot4_node_interfaces.
+turtlebot4_node_interfaces_DIR:PATH=/home/ros/turtlebot4_ws/install/turtlebot4_node_interfaces/share/turtlebot4_node_interfaces/cmake
 
 //The directory containing a CMake configuration file for unique_identifier_msgs.
 unique_identifier_msgs_DIR:PATH=/opt/ros/humble/share/unique_identifier_msgs/cmake
@@ -693,6 +785,12 @@ FIND_PACKAGE_MESSAGE_DETAILS_FastRTPS:INTERNAL=[/opt/ros/humble/include][/opt/ro
 FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libcrypto.so][/usr/include][c ][v3.0.2()]
 //Details about finding Python3
 FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[/usr/bin/python3][cfound components: Interpreter ][v3.10.12()]
+//Details about finding PythonExtra
+FIND_PACKAGE_MESSAGE_DETAILS_PythonExtra:INTERNAL=[.so][/usr/include/python3.10][/usr/lib/x86_64-linux-gnu/libpython3.10.so][cpython-310-x86_64-linux-gnu][.cpython-310-x86_64-linux-gnu][v()]
+//Details about finding PythonInterp
+FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3][v3.10.12(3.6)]
+//Details about finding PythonLibs
+FIND_PACKAGE_MESSAGE_DETAILS_PythonLibs:INTERNAL=[/usr/lib/x86_64-linux-gnu/libpython3.10.so][/usr/include/python3.10][v3.10.12(3.5)]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: OPENSSL_CRYPTO_LIBRARY
@@ -705,6 +803,22 @@ OPENSSL_SSL_LIBRARY-ADVANCED:INTERNAL=1
 PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
 PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PYTHON_EXECUTABLE
+PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PYTHON_INCLUDE_DIR
+PYTHON_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//The directory for Python library installation. This needs to
+// be in PYTHONPATH when 'setup.py install' is called.
+PYTHON_INSTALL_DIR:INTERNAL=local/lib/python3.10/dist-packages
+//ADVANCED property for variable: PYTHON_LIBRARY
+PYTHON_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PYTHON_LIBRARY_DEBUG
+PYTHON_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//The SOABI suffix for Python native extensions. See PEP-3149:
+// https://www.python.org/dev/peps/pep-3149/.
+PYTHON_SOABI:INTERNAL=cpython-310-x86_64-linux-gnu
+//The full suffix for Python native extensions. See PEP-3149: https://www.python.org/dev/peps/pep-3149/.
+PythonExtra_EXTENSION_SUFFIX:INTERNAL=.cpython-310-x86_64-linux-gnu
 _OPENSSL_CFLAGS:INTERNAL=
 _OPENSSL_CFLAGS_I:INTERNAL=
 _OPENSSL_CFLAGS_OTHER:INTERNAL=

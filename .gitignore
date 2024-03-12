@@ -1,0 +1,10 @@
+.vscode/*
+.vscode
+log/*
+build
+build/*
+build/**
+install/*
+install
+src/log
+src/log/*

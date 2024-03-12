@@ -74,7 +74,8 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "*.srv": "cpp"
     },
     "python.autoComplete.extraPaths": [
         "/home/ros/turtlebot4_ws/build/turtlebot4_py",
@@ -87,5 +88,6 @@
         "/home/ros/turtlebot4_ws/install/turtlebot4_py/lib/python3.10/site-packages",
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
-    ]
+    ],
+    "ros.distro": "humble"
 }
