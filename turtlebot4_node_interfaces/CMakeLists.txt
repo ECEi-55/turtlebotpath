@@ -20,6 +20,7 @@ ament_export_dependencies(rosidl_default_runtime)
 
 set(srv_files
   "srv/Drive.srv"
+  "srv/Rotate.srv"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}

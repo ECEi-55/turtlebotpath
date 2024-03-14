@@ -59,19 +59,37 @@ private:
     // path_r.angle = 3.1415/2;;
     // this->rotate_publisher_->publish(path_r);
 
+    /*
+    auto request = std::make_shared<std_srvs::srv::SetBool::Request>();
+    request->data = true;
+
+    auto result = client_->async_send_request(request);
+    if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) 
+        != rclcpp::executor::FutureReturnCode::SUCCESS)
+    {
+      RCLCPP_ERROR(this->get_logger(), "Failed");
+    }
+    */
+
+
     auto dist = std::make_shared<turtlebot4_node_interfaces::srv::Drive::Request>();
     dist->distance = 1;
+    auto result = this->drive_client_->async_send_request(dist);
+    if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) 
+        != rclcpp::FutureReturnCode::SUCCESS) {
+          
+          RCLCPP_INFO(this->get_logger(), "send rotate goal over");
+        }
 
 
-    while(!this->drive_client_->wait_for_service(1s)){
-      if (!rclcpp::ok()) {
-        RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for the service. Exiting.");
-        return ;
-      }
-      RCLCPP_INFO(this->get_logger(), "service not available, waiting again...");
-    }
+    // while(!this->drive_client_->wait_for_service(1s)){
+    //   if (!rclcpp::ok()) {
+    //     RCLCPP_ERROR(this->get_logger(), "Interrupted while waiting for the service. Exiting.");
+    //     return ;
+    //   }
+    //   RCLCPP_INFO(this->get_logger(), "service not available, waiting again...");
+    // }
 
-    RCLCPP_INFO(this->get_logger(), "send rotate goal over");
 
   }
   

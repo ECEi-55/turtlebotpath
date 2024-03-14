@@ -11,6 +11,7 @@
 #include "irobot_create_msgs/action/rotate_angle.hpp"
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <std_msgs/msg/header.hpp>
+#include "turtlebot4_node_interfaces/srv/rotate.hpp"
 
 using namespace std::chrono_literals;
 
@@ -33,6 +34,10 @@ public:
     );
 
     this->rotate_ptr_= rclcpp_action::create_client<irobot_create_msgs::action::RotateAngle>(this, "/rotate_angle");
+    this->rotate_srv_ = this->create_service<turtlebot4_node_interfaces::srv::Rotate>(
+      "/robot_rotate_srv", 
+      std::bind(&TurtleBot4RotateNode::rotate_srv_func, this, std::placeholders::_1, std::placeholders::_2));
+  
   }
 
 private:
@@ -46,20 +51,52 @@ private:
 
   void rotate_callback(const irobot_create_msgs::action::RotateAngle_Goal path_d)
   {
+    // auto opts = rclcpp_action::Client<irobot_create_msgs::action::RotateAngle>::SendGoalOptions();
+
+    // opts.goal_response_callback = std::bind(&TurtleBot4RotateNode::goal_response_callback, this, std::placeholders::_1);
+    // // rotate_opts.feedback_callback = std::bind(&TurtleBot4Node::feedback_angle_callback, this, std::placeholders::_1, std::placeholders::_2);
+    // opts.result_callback = std::bind(&TurtleBot4RotateNode::result_callback, this, std::placeholders::_1);
+
+    // RCLCPP_INFO(this->get_logger(), "Sending goal");
+
+    // this->rotate_ptr_->async_send_goal(path_d, opts);
+
+    RCLCPP_INFO(this->get_logger(), "Button 2 pressed - cancelling all goals");
+    this->rotate_ptr_->async_cancel_all_goals();
+
+  }
+
+  void rotate_srv_func(
+    const std::shared_ptr<turtlebot4_node_interfaces::srv::Rotate::Request> request,
+    std::shared_ptr<turtlebot4_node_interfaces::srv::Rotate::Response> response)
+  {
+    response->success = true;
+    irobot_create_msgs::action::RotateAngle_Goal path_r;
+    
+    path_r.angle = request->angle;
     auto opts = rclcpp_action::Client<irobot_create_msgs::action::RotateAngle>::SendGoalOptions();
 
     opts.goal_response_callback = std::bind(&TurtleBot4RotateNode::goal_response_callback, this, std::placeholders::_1);
     // rotate_opts.feedback_callback = std::bind(&TurtleBot4Node::feedback_angle_callback, this, std::placeholders::_1, std::placeholders::_2);
     opts.result_callback = std::bind(&TurtleBot4RotateNode::result_callback, this, std::placeholders::_1);
 
-    RCLCPP_INFO(this->get_logger(), "Sending goal");
+    RCLCPP_INFO(this->get_logger(), "Sending rotate goal with value");
 
-    this->rotate_ptr_->async_send_goal(path_d, opts);
+    auto result = this->rotate_ptr_->async_send_goal(path_r, opts);
+
+    //  if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) 
+    //     != rclcpp::FutureReturnCode::SUCCESS)
+    //   {
+    //     RCLCPP_ERROR(this->get_logger(), "Failed");
+    //   }
+
+    RCLCPP_INFO(this->get_logger(), "sending back response: true");
 
   }
   // Interface Button Subscriber
   rclcpp::Subscription<irobot_create_msgs::msg::InterfaceButtons>::SharedPtr interface_buttons_subscriber_;
   rclcpp_action::Client<irobot_create_msgs::action::RotateAngle>::SharedPtr rotate_ptr_;
+  rclcpp::Service<turtlebot4_node_interfaces::srv::Rotate>::SharedPtr rotate_srv_;
   rclcpp::Subscription<irobot_create_msgs::action::RotateAngle_Goal>::SharedPtr rotate_subscriber_;
 
   void result_callback(const rclcpp_action::ClientGoalHandle<irobot_create_msgs::action::RotateAngle>::WrappedResult & result){

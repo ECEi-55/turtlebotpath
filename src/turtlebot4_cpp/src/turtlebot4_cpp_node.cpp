@@ -56,7 +56,7 @@ private:
     { 
       if(create3_buttons_msg->button_1.is_pressed) {
         RCLCPP_INFO(this->get_logger(), "Button 1 pressed - starting path");
-        path();
+        path_action();
       }
       if(create3_buttons_msg->button_2.is_pressed){
         RCLCPP_INFO(this->get_logger(), "Button 2 pressed - cancelling all goals");
@@ -91,21 +91,24 @@ private:
     auto rotate_opts = rclcpp_action::Client<irobot_create_msgs::action::RotateAngle>::SendGoalOptions();
     rotate_opts.result_callback = std::bind(&TurtleBot4Node::result_angle_callback, this, std::placeholders::_1);
 
-    RCLCPP_INFO(this->get_logger(), "Sending goals");
+    RCLCPP_INFO(this->get_logger(), "Sending goals, path action");
 
     path_r.angle = 3.1415/2;
-    path_r.max_rotation_speed = 1.5;
-    if(this->rotate_ptr_->action_server_is_ready()){  
-      auto p = this->rotate_ptr_->async_send_goal(path_r, rotate_opts);
-    } else {
-      RCLCPP_ERROR(this->get_logger(), "Rotate action server not ready");
-      while(this->rotate_ptr_->wait_for_action_server(10s)){
-        RCLCPP_INFO(this->get_logger(), "Waiting for action server");
-        sleep(0.5);
-      }
-    }
-    
     path_d.distance = 1;
+    this->rotate_ptr_->async_send_goal(path_r, rotate_opts);
+   
+    this->drive_ptr_->async_send_goal(path_d, drive_opts);
+
+    this->rotate_ptr_->async_send_goal(path_r, rotate_opts);
+   
+    this->drive_ptr_->async_send_goal(path_d, drive_opts);
+
+    this->rotate_ptr_->async_send_goal(path_r, rotate_opts);
+   
+    this->drive_ptr_->async_send_goal(path_d, drive_opts);
+
+    this->rotate_ptr_->async_send_goal(path_r, rotate_opts);
+   
     this->drive_ptr_->async_send_goal(path_d, drive_opts);
   }
   

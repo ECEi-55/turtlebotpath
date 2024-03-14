@@ -1,0 +1,4 @@
+# irobot_create_msgs/action/DriveDistance_Goal drive # the goal to drive to for the robot
+float32 angle # angle in rads
+---
+bool success   # indicate successful application of command

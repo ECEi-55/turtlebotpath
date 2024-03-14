@@ -50,15 +50,18 @@ private:
 
   void drive_callback(const irobot_create_msgs::action::DriveDistance_Goal path_d)
   {
-    auto opts = rclcpp_action::Client<irobot_create_msgs::action::DriveDistance>::SendGoalOptions();
+    // auto opts = rclcpp_action::Client<irobot_create_msgs::action::DriveDistance>::SendGoalOptions();
 
-    opts.goal_response_callback = std::bind(&TurtleBot4DriveNode::goal_response_callback, this, std::placeholders::_1);
-    // rotate_opts.feedback_callback = std::bind(&TurtleBot4Node::feedback_angle_callback, this, std::placeholders::_1, std::placeholders::_2);
-    opts.result_callback = std::bind(&TurtleBot4DriveNode::result_callback, this, std::placeholders::_1);
+    // opts.goal_response_callback = std::bind(&TurtleBot4DriveNode::goal_response_callback, this, std::placeholders::_1);
+    // // rotate_opts.feedback_callback = std::bind(&TurtleBot4Node::feedback_angle_callback, this, std::placeholders::_1, std::placeholders::_2);
+    // opts.result_callback = std::bind(&TurtleBot4DriveNode::result_callback, this, std::placeholders::_1);
 
-    RCLCPP_INFO(this->get_logger(), "Sending goal");
+    // RCLCPP_INFO(this->get_logger(), "Sending goal");
 
-    this->drive_ptr_->async_send_goal(path_d, opts);
+    // this->drive_ptr_->async_send_goal(path_d, opts);
+    
+    RCLCPP_INFO(this->get_logger(), "Button 2 pressed - cancelling all goals");
+    this->drive_ptr_->async_cancel_all_goals();
 
   }
 
@@ -78,7 +81,13 @@ private:
 
     RCLCPP_INFO(this->get_logger(), "Sending drive goal with value");
 
-    this->drive_ptr_->async_send_goal(path_d, opts);
+    auto result = this->drive_ptr_->async_send_goal(path_d, opts);
+
+    // if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) 
+    //     != rclcpp::FutureReturnCode::SUCCESS)
+    //   {
+    //     RCLCPP_ERROR(this->get_logger(), "Failed");
+    //   }
 
     RCLCPP_INFO(this->get_logger(), "sending back response: true");
 

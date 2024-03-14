@@ -86,7 +86,7 @@ private:
       auto p = this->rotate_ptr_->async_send_goal(path_r, rotate_opts);
     } else {
       RCLCPP_ERROR(this->get_logger(), "Rotate action server not ready");
-      while(this->rotate_ptr_->wait_for_action_server(10s)){
+      while(this->rotate_ptr_->wait_for_action_server(3s)){
         RCLCPP_INFO(this->get_logger(), "Waiting for action server");
         sleep(0.5);
       }
@@ -104,7 +104,8 @@ private:
     auto drive_opts = rclcpp_action::Client<irobot_create_msgs::action::DriveDistance>::SendGoalOptions();
     auto path_r = irobot_create_msgs::action::RotateAngle_Goal();
     auto rotate_opts = rclcpp_action::Client<irobot_create_msgs::action::RotateAngle>::SendGoalOptions();
-
+    path_d.max_translation_speed = 0.8;
+    // path_r.max_rotation_speed = 0.15;
     rotate_opts.goal_response_callback = std::bind(&TurtleBot4Node::goal_angle_response_callback, this, std::placeholders::_1);
     // rotate_opts.feedback_callback = std::bind(&TurtleBot4Node::feedback_angle_callback, this, std::placeholders::_1, std::placeholders::_2);
     rotate_opts.result_callback = std::bind(&TurtleBot4Node::result_angle_callback, this, std::placeholders::_1);
@@ -212,14 +213,14 @@ private:
 
       // TODO: Send goal to rotate by theta, in direction dictated by sign of cross product magnitude.
       // This may not give the most efficient angle though... may have to compute the other cross as well, and compare. 
-      path_r.angle = theta_2;
-      this->rotate_ptr_->async_send_goal(path_r, rotate_opts);
-      rclcpp::sleep_for(6s);
-      // once the robot is rotated to face P1, then send the command to move prev_to_P1_mag
-      // TODO: move robot forward prev_to_P1_mag
-      path_d.distance = prev_to_P1_mag;
-      this->drive_ptr_->async_send_goal(path_d, drive_opts);
-      rclcpp::sleep_for(6s);
+      // path_r.angle = theta_2;
+      // this->rotate_ptr_->async_send_goal(path_r, rotate_opts);
+      // rclcpp::sleep_for(3s);
+      // // once the robot is rotated to face P1, then send the command to move prev_to_P1_mag
+      // // TODO: move robot forward prev_to_P1_mag
+      // path_d.distance = prev_to_P1_mag;
+      // this->drive_ptr_->async_send_goal(path_d, drive_opts);
+      // rclcpp::sleep_for(3s);
       //once the translation to P1 is complete, rotate the robot to face the stroke direction. 
 
       // the current direction should be prev_to_P1_vector_norm, and the desired direction is stroke_vector_norm
@@ -233,91 +234,19 @@ private:
       std::cout << "Theta_2(2): " << theta_2 << std::endl;
 
       // TODO: send goal to rotate by theta, in the direction dictated by sign of cross product magnitud
-      path_r.angle = theta_2;
-      this->rotate_ptr_->async_send_goal(path_r, rotate_opts);
-      rclcpp::sleep_for(6s);
-      // now send goal for the robot to drive with a magnitude equal to stroke vector mag
-      path_d.distance = stroke_vector_mag;
-      this->drive_ptr_->async_send_goal(path_d, drive_opts);
-      rclcpp::sleep_for(6s);
+      // path_r.angle = theta_2;
+      // this->rotate_ptr_->async_send_goal(path_r, rotate_opts);
+      // rclcpp::sleep_for(3s);
+      // // now send goal for the robot to drive with a magnitude equal to stroke vector mag
+      // path_d.distance = stroke_vector_mag;
+      // this->drive_ptr_->async_send_goal(path_d, drive_opts);
+      // rclcpp::sleep_for(3s);
 
       //set the previous_dir and previous_pos
       previous_dir[0] = stroke_vector_norm[0];
       previous_dir[1] = stroke_vector_norm[1];
       previous_pos[0] = P2[0];
       previous_pos[1] = P2[1];
-
-      // break; // for debug
-
-
-
-      /*
-
-      float next_pos[2];
-      
-      next_pos[0] = pointst[i][0];      
-      next_pos[1] = pointst[i][1];
-
-      std::stringstream log1;
-      log1 << "From: " << current_pos[0] << ", " << current_pos[1] << " to " << next_pos[0] << ", " << next_pos[1];
-      RCLCPP_INFO(this->get_logger(), log1.str().c_str());
-
-      // the displacement between the current position and the next position
-      float delta_x = next_pos[0] - current_pos[0];
-      float delta_y = next_pos[1] - current_pos[1];
-
-      // the magnitude of the distance between the current position and the next position
-      float mag = std::sqrt(delta_x * delta_x + delta_y * delta_y);
-      float delta_xn = delta_x/mag;
-      float delta_yn = delta_y/mag;
-
-      float ang = std::acos(current_dir[0]*delta_xn + current_dir[1]*delta_yn);
-
-      float x = current_dir[0] * std::cos(ang) - current_dir[1] * std::sin(ang);//  cos θ − y sin θ
-      float y = current_dir[0] * std::sin(ang) + current_dir[1] * std::cos(ang);//  cos θ + y sin θ
-
-      float error = 0.001;
-
-      if(x > delta_xn+error || x<delta_xn-error || y>delta_yn+error || y < delta_yn-error){
-        x = current_dir[0] * std::cos(-ang) - current_dir[1] * std::sin(-ang);
-        y = current_dir[0] * std::sin(-ang) + current_dir[1] * std::cos(-ang);
-        RCLCPP_INFO(this->get_logger(), "Flipped Angle");
-        ang = -ang;
-      }
-
-      //construct the Twist based on the new information
-      //do we need to set the empty values? 
-      std::stringstream log;
-      log << "published path:" << "\n\tangle: " << (ang*180/3.1415) << " mag: " << mag << " new x: " << x << " new y:" << y 
-      << " dx:" << delta_x << " dxn:" << delta_xn << " dy:" << delta_y << " dyn:"<< delta_yn;
-
-      path_r.angle = ang;
-      path_d.distance = mag;
-
-      if(this->rotate_ptr_->action_server_is_ready()){
-        this->rotate_ptr_->async_send_goal(path_r, rotate_opts);
-      } else {
-        RCLCPP_ERROR(this->get_logger(), "Rotate action server not ready");
-      }
-
-      // rclcpp::sleep_for(6s);
-
-      // while(!wait_for_callback_rotate){
-
-      // }
-
-      if(this->rotate_ptr_->action_server_is_ready()){
-        this->drive_ptr_->async_send_goal(path_d, drive_opts);
-      } else {
-        RCLCPP_ERROR(this->get_logger(), "Drive action server not ready");
-      }
-
-      RCLCPP_INFO(this->get_logger(), log.str().c_str());
-      
-      current_pos[0] = next_pos[0];
-      current_pos[1] = next_pos[1];
-      current_dir[0] = delta_xn;
-      current_dir[1] = delta_yn;*/
 
       rclcpp::sleep_for(3s);
     }
@@ -352,10 +281,14 @@ private:
     }
 
     std::stringstream ss;
+    // std::cout << result.goal_id << std::endl;
     ss << "Completed goal with results: \nResults" << "\n\tOrientation \n\t\tx: " << result.result->pose.pose.orientation.x << " y: " << result.result->pose.pose.orientation.y
     << " z: " << result.result->pose.pose.orientation.z << " w: " << result.result->pose.pose.orientation.w;
     ss << "\n\tPosition \n\t\tx: " << result.result->pose.pose.position.x << " y: " << result.result->pose.pose.position.y << " z: " << result.result->pose.pose.position.z;
+    ss << "\n(" << result.result->pose.pose.position.x << "," << result.result->pose.pose.position.y << ")";
+    
     RCLCPP_INFO(this->get_logger(), ss.str().c_str());
+
     result.result->pose.header.frame_id = "odom_angle";
   }
 
@@ -393,9 +326,12 @@ private:
         return;
     }
     std::stringstream ss;
+    // fprintf("Goal ID: %s", result.goalid);
     ss << "Completed goal with results: \nResults" << "\n\tOrientation \n\t\tx: " << result.result->pose.pose.orientation.x << " y: " << result.result->pose.pose.orientation.y
     << " z: " << result.result->pose.pose.orientation.z << " w: " << result.result->pose.pose.orientation.w;
     ss << "\n\tPosition \n\t\tx: " << result.result->pose.pose.position.x << " y: " << result.result->pose.pose.position.y << " z: " << result.result->pose.pose.position.z;
+    ss << "\n(" << result.result->pose.pose.position.x << "," << result.result->pose.pose.position.y << ")";
+    
     RCLCPP_INFO(this->get_logger(), ss.str().c_str());
     result.result->pose.header.frame_id = "odom_drive";
   }
