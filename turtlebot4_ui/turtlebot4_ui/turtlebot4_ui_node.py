@@ -120,15 +120,15 @@ class App:
         self.subnode = TurtleBot4Sub()
         self.working_image_directory = working_image_directory
 
-        # self.points = [
-        #     [0,0],[0,0.5], 
+        self.pointso = [
+            [0,0],[0,0.5], 
 
-        #     [0,0.5],[0.5,0.5],
+            [0,0.5],[0.5,0.5],
 
-        #     [0.5,0.5],[0.5,0],
+            [0.5,0.5],[0.5,0],
 
-        #     [0.5,0],[0,0]
-        # ]
+            [0.5,0],[0,0]
+        ]
 
         self.points = [
 [0.0, 0.40789473684210525],
