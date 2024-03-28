@@ -69,6 +69,7 @@ private:
     const std::shared_ptr<turtlebot4_node_interfaces::srv::Drive::Request> request,
     std::shared_ptr<turtlebot4_node_interfaces::srv::Drive::Response> response)
   {
+    RCLCPP_INFO(this->get_logger(), "Recieved Drive Goal"); 
     response->success = true;
     irobot_create_msgs::action::DriveDistance_Goal path_d;
     

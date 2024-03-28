@@ -70,6 +70,7 @@ private:
     const std::shared_ptr<turtlebot4_node_interfaces::srv::Rotate::Request> request,
     std::shared_ptr<turtlebot4_node_interfaces::srv::Rotate::Response> response)
   {
+    RCLCPP_INFO(this->get_logger(), "Recieved Rotate Goal"); 
     response->success = true;
     irobot_create_msgs::action::RotateAngle_Goal path_r;
     

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/turtlebot4_ws/src/turtlebot4_cpp
+CMAKE_SOURCE_DIR = /home/sinan/turtlebot4_ws/src/turtlebot4_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp
+CMAKE_BINARY_DIR = /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/CMakeFiles /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/CMakeFiles /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -210,6 +210,58 @@ turtlebot4_cpp_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_cpp_node.dir/build.make CMakeFiles/turtlebot4_cpp_node.dir/build
 .PHONY : turtlebot4_cpp_node/fast
 
+#=============================================================================
+# Target rules for targets named turtlebot4_main_node
+
+# Build rule for target.
+turtlebot4_main_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 turtlebot4_main_node
+.PHONY : turtlebot4_main_node
+
+# fast build rule for target.
+turtlebot4_main_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_main_node.dir/build.make CMakeFiles/turtlebot4_main_node.dir/build
+.PHONY : turtlebot4_main_node/fast
+
+#=============================================================================
+# Target rules for targets named turtlebot4_goal_node
+
+# Build rule for target.
+turtlebot4_goal_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 turtlebot4_goal_node
+.PHONY : turtlebot4_goal_node
+
+# fast build rule for target.
+turtlebot4_goal_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_goal_node.dir/build.make CMakeFiles/turtlebot4_goal_node.dir/build
+.PHONY : turtlebot4_goal_node/fast
+
+#=============================================================================
+# Target rules for targets named turtlebot4_drive_node
+
+# Build rule for target.
+turtlebot4_drive_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 turtlebot4_drive_node
+.PHONY : turtlebot4_drive_node
+
+# fast build rule for target.
+turtlebot4_drive_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_drive_node.dir/build.make CMakeFiles/turtlebot4_drive_node.dir/build
+.PHONY : turtlebot4_drive_node/fast
+
+#=============================================================================
+# Target rules for targets named turtlebot4_rotate_node
+
+# Build rule for target.
+turtlebot4_rotate_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 turtlebot4_rotate_node
+.PHONY : turtlebot4_rotate_node
+
+# fast build rule for target.
+turtlebot4_rotate_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_rotate_node.dir/build.make CMakeFiles/turtlebot4_rotate_node.dir/build
+.PHONY : turtlebot4_rotate_node/fast
+
 src/turtlebot4_cpp_node.o: src/turtlebot4_cpp_node.cpp.o
 .PHONY : src/turtlebot4_cpp_node.o
 
@@ -234,6 +286,102 @@ src/turtlebot4_cpp_node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_cpp_node.dir/build.make CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.s
 .PHONY : src/turtlebot4_cpp_node.cpp.s
 
+src/turtlebot4_drive_node.o: src/turtlebot4_drive_node.cpp.o
+.PHONY : src/turtlebot4_drive_node.o
+
+# target to build an object file
+src/turtlebot4_drive_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_drive_node.dir/build.make CMakeFiles/turtlebot4_drive_node.dir/src/turtlebot4_drive_node.cpp.o
+.PHONY : src/turtlebot4_drive_node.cpp.o
+
+src/turtlebot4_drive_node.i: src/turtlebot4_drive_node.cpp.i
+.PHONY : src/turtlebot4_drive_node.i
+
+# target to preprocess a source file
+src/turtlebot4_drive_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_drive_node.dir/build.make CMakeFiles/turtlebot4_drive_node.dir/src/turtlebot4_drive_node.cpp.i
+.PHONY : src/turtlebot4_drive_node.cpp.i
+
+src/turtlebot4_drive_node.s: src/turtlebot4_drive_node.cpp.s
+.PHONY : src/turtlebot4_drive_node.s
+
+# target to generate assembly for a file
+src/turtlebot4_drive_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_drive_node.dir/build.make CMakeFiles/turtlebot4_drive_node.dir/src/turtlebot4_drive_node.cpp.s
+.PHONY : src/turtlebot4_drive_node.cpp.s
+
+src/turtlebot4_goal_node.o: src/turtlebot4_goal_node.cpp.o
+.PHONY : src/turtlebot4_goal_node.o
+
+# target to build an object file
+src/turtlebot4_goal_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_goal_node.dir/build.make CMakeFiles/turtlebot4_goal_node.dir/src/turtlebot4_goal_node.cpp.o
+.PHONY : src/turtlebot4_goal_node.cpp.o
+
+src/turtlebot4_goal_node.i: src/turtlebot4_goal_node.cpp.i
+.PHONY : src/turtlebot4_goal_node.i
+
+# target to preprocess a source file
+src/turtlebot4_goal_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_goal_node.dir/build.make CMakeFiles/turtlebot4_goal_node.dir/src/turtlebot4_goal_node.cpp.i
+.PHONY : src/turtlebot4_goal_node.cpp.i
+
+src/turtlebot4_goal_node.s: src/turtlebot4_goal_node.cpp.s
+.PHONY : src/turtlebot4_goal_node.s
+
+# target to generate assembly for a file
+src/turtlebot4_goal_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_goal_node.dir/build.make CMakeFiles/turtlebot4_goal_node.dir/src/turtlebot4_goal_node.cpp.s
+.PHONY : src/turtlebot4_goal_node.cpp.s
+
+src/turtlebot4_main_node.o: src/turtlebot4_main_node.cpp.o
+.PHONY : src/turtlebot4_main_node.o
+
+# target to build an object file
+src/turtlebot4_main_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_main_node.dir/build.make CMakeFiles/turtlebot4_main_node.dir/src/turtlebot4_main_node.cpp.o
+.PHONY : src/turtlebot4_main_node.cpp.o
+
+src/turtlebot4_main_node.i: src/turtlebot4_main_node.cpp.i
+.PHONY : src/turtlebot4_main_node.i
+
+# target to preprocess a source file
+src/turtlebot4_main_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_main_node.dir/build.make CMakeFiles/turtlebot4_main_node.dir/src/turtlebot4_main_node.cpp.i
+.PHONY : src/turtlebot4_main_node.cpp.i
+
+src/turtlebot4_main_node.s: src/turtlebot4_main_node.cpp.s
+.PHONY : src/turtlebot4_main_node.s
+
+# target to generate assembly for a file
+src/turtlebot4_main_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_main_node.dir/build.make CMakeFiles/turtlebot4_main_node.dir/src/turtlebot4_main_node.cpp.s
+.PHONY : src/turtlebot4_main_node.cpp.s
+
+src/turtlebot4_rotate_node.o: src/turtlebot4_rotate_node.cpp.o
+.PHONY : src/turtlebot4_rotate_node.o
+
+# target to build an object file
+src/turtlebot4_rotate_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_rotate_node.dir/build.make CMakeFiles/turtlebot4_rotate_node.dir/src/turtlebot4_rotate_node.cpp.o
+.PHONY : src/turtlebot4_rotate_node.cpp.o
+
+src/turtlebot4_rotate_node.i: src/turtlebot4_rotate_node.cpp.i
+.PHONY : src/turtlebot4_rotate_node.i
+
+# target to preprocess a source file
+src/turtlebot4_rotate_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_rotate_node.dir/build.make CMakeFiles/turtlebot4_rotate_node.dir/src/turtlebot4_rotate_node.cpp.i
+.PHONY : src/turtlebot4_rotate_node.cpp.i
+
+src/turtlebot4_rotate_node.s: src/turtlebot4_rotate_node.cpp.s
+.PHONY : src/turtlebot4_rotate_node.s
+
+# target to generate assembly for a file
+src/turtlebot4_rotate_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/turtlebot4_rotate_node.dir/build.make CMakeFiles/turtlebot4_rotate_node.dir/src/turtlebot4_rotate_node.cpp.s
+.PHONY : src/turtlebot4_rotate_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -250,9 +398,25 @@ help:
 	@echo "... turtlebot4_cpp_uninstall"
 	@echo "... uninstall"
 	@echo "... turtlebot4_cpp_node"
+	@echo "... turtlebot4_drive_node"
+	@echo "... turtlebot4_goal_node"
+	@echo "... turtlebot4_main_node"
+	@echo "... turtlebot4_rotate_node"
 	@echo "... src/turtlebot4_cpp_node.o"
 	@echo "... src/turtlebot4_cpp_node.i"
 	@echo "... src/turtlebot4_cpp_node.s"
+	@echo "... src/turtlebot4_drive_node.o"
+	@echo "... src/turtlebot4_drive_node.i"
+	@echo "... src/turtlebot4_drive_node.s"
+	@echo "... src/turtlebot4_goal_node.o"
+	@echo "... src/turtlebot4_goal_node.i"
+	@echo "... src/turtlebot4_goal_node.s"
+	@echo "... src/turtlebot4_main_node.o"
+	@echo "... src/turtlebot4_main_node.i"
+	@echo "... src/turtlebot4_main_node.s"
+	@echo "... src/turtlebot4_rotate_node.o"
+	@echo "... src/turtlebot4_rotate_node.i"
+	@echo "... src/turtlebot4_rotate_node.s"
 .PHONY : help
 
 

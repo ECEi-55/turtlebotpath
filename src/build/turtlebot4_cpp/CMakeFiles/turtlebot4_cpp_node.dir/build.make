@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/turtlebot4_ws/src/turtlebot4_cpp
+CMAKE_SOURCE_DIR = /home/sinan/turtlebot4_ws/src/turtlebot4_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp
+CMAKE_BINARY_DIR = /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp
 
 # Include any dependencies generated for this target.
 include CMakeFiles/turtlebot4_cpp_node.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/turtlebot4_cpp_node.dir/progress.make
 include CMakeFiles/turtlebot4_cpp_node.dir/flags.make
 
 CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o: CMakeFiles/turtlebot4_cpp_node.dir/flags.make
-CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o: /home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp
+CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o: /home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp
 CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o: CMakeFiles/turtlebot4_cpp_node.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o -MF CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o.d -o CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o -c /home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o -MF CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o.d -o CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o -c /home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp
 
 CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp > CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp > CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.i
 
 CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp -o CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp -o CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.s
 
 # Object files for target turtlebot4_cpp_node
 turtlebot4_cpp_node_OBJECTS = \
@@ -92,29 +92,27 @@ turtlebot4_cpp_node_EXTERNAL_OBJECTS =
 
 turtlebot4_cpp_node: CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o
 turtlebot4_cpp_node: CMakeFiles/turtlebot4_cpp_node.dir/build.make
-turtlebot4_cpp_node: /opt/ros/humble/lib/librclcpp.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libirobot_create_msgs__rosidl_typesupport_fastrtps_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libirobot_create_msgs__rosidl_typesupport_introspection_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libirobot_create_msgs__rosidl_typesupport_fastrtps_cpp.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libirobot_create_msgs__rosidl_typesupport_introspection_cpp.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libirobot_create_msgs__rosidl_typesupport_cpp.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libirobot_create_msgs__rosidl_generator_py.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librclcpp_action.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspection_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspection_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_generator_py.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_introspection_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_py.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libirobot_create_msgs__rosidl_typesupport_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libirobot_create_msgs__rosidl_generator_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librclcpp.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/liblibstatistics_collector.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librcl.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librmw_implementation.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libament_index_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_logging_spdlog.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_logging_interface.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_fastrtps_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_introspection_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_fastrtps_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_introspection_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_generator_py.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_generator_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_yaml_param_parser.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libyaml.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_fastrtps_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_fastrtps_cpp.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_introspection_c.so
@@ -131,48 +129,55 @@ turtlebot4_cpp_node: /opt/ros/humble/lib/libstatistics_msgs__rosidl_typesupport_
 turtlebot4_cpp_node: /opt/ros/humble/lib/libstatistics_msgs__rosidl_generator_py.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libstatistics_msgs__rosidl_typesupport_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libstatistics_msgs__rosidl_generator_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_action.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_fastrtps_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_introspection_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_fastrtps_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_introspection_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_generator_py.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_generator_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_yaml_param_parser.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libyaml.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libtracetools.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librmw_implementation.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libament_index_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_logging_spdlog.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librcl_logging_interface.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_fastrtps_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_introspection_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_introspection_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_fastrtps_cpp.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_fastrtps_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libfastcdr.so.1.0.24
-turtlebot4_cpp_node: /opt/ros/humble/lib/librmw.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_introspection_cpp.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_introspection_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_introspection_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_introspection_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librosidl_typesupport_introspection_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librosidl_typesupport_introspection_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_cpp.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/librosidl_typesupport_cpp.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libirobot_create_msgs__rosidl_typesupport_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libirobot_create_msgs__rosidl_generator_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libaction_msgs__rosidl_generator_py.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libaction_msgs__rosidl_generator_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_generator_py.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_generator_c.so
-turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_py.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libfastcdr.so.1.0.24
+turtlebot4_cpp_node: /opt/ros/humble/lib/librmw.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_introspection_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_introspection_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librosidl_typesupport_introspection_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librosidl_typesupport_introspection_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_c.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_generator_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_generator_py.so
@@ -181,13 +186,18 @@ turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_generator_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_generator_c.so
+turtlebot4_cpp_node: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_cpp.so
+turtlebot4_cpp_node: /opt/ros/humble/lib/librosidl_typesupport_cpp.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/librosidl_typesupport_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/librcpputils.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/librosidl_runtime_c.so
 turtlebot4_cpp_node: /opt/ros/humble/lib/librcutils.so
-turtlebot4_cpp_node: /usr/lib/x86_64-linux-gnu/libpython3.10.so
 turtlebot4_cpp_node: CMakeFiles/turtlebot4_cpp_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable turtlebot4_cpp_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable turtlebot4_cpp_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/turtlebot4_cpp_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -199,6 +209,6 @@ CMakeFiles/turtlebot4_cpp_node.dir/clean:
 .PHONY : CMakeFiles/turtlebot4_cpp_node.dir/clean
 
 CMakeFiles/turtlebot4_cpp_node.dir/depend:
-	cd /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/turtlebot4_ws/src/turtlebot4_cpp /home/ros/turtlebot4_ws/src/turtlebot4_cpp /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/CMakeFiles/turtlebot4_cpp_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sinan/turtlebot4_ws/src/turtlebot4_cpp /home/sinan/turtlebot4_ws/src/turtlebot4_cpp /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/CMakeFiles/turtlebot4_cpp_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/turtlebot4_cpp_node.dir/depend
 

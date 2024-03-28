@@ -1,8 +1,8 @@
-# Install script for directory: /home/ros/turtlebot4_ws/src/turtlebot4_cpp
+# Install script for directory: /home/sinan/turtlebot4_ws/src/turtlebot4_cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ros/turtlebot4_ws/src/install/turtlebot4_cpp")
+  set(CMAKE_INSTALL_PREFIX "/home/sinan/turtlebot4_ws/src/install/turtlebot4_cpp")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,31 +43,91 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_cpp_node" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_cpp_node")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_drive_node" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_drive_node")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_cpp_node"
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_drive_node"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp" TYPE EXECUTABLE FILES "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/turtlebot4_cpp_node")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_cpp_node" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_cpp_node")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp" TYPE EXECUTABLE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/turtlebot4_drive_node")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_drive_node" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_drive_node")
     file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_cpp_node"
-         OLD_RPATH "/opt/ros/humble/lib:"
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_drive_node"
+         OLD_RPATH "/opt/ros/humble/lib:/home/sinan/turtlebot4_ws/install/turtlebot4_node_interfaces/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_cpp_node")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_drive_node")
     endif()
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/turtlebot4_cpp")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_rotate_node" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_rotate_node")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_rotate_node"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp" TYPE EXECUTABLE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/turtlebot4_rotate_node")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_rotate_node" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_rotate_node")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_rotate_node"
+         OLD_RPATH "/opt/ros/humble/lib:/home/sinan/turtlebot4_ws/install/turtlebot4_node_interfaces/lib:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_rotate_node")
+    endif()
+  endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/turtlebot4_cpp")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_goal_node" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_goal_node")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_goal_node"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp" TYPE EXECUTABLE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/turtlebot4_goal_node")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_goal_node" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_goal_node")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_goal_node"
+         OLD_RPATH "/opt/ros/humble/lib:/home/sinan/turtlebot4_ws/install/turtlebot4_node_interfaces/lib:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_goal_node")
+    endif()
+  endif()
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_main_node" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_main_node")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_main_node"
+         RPATH "")
+  endif()
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp" TYPE EXECUTABLE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/turtlebot4_main_node")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_main_node" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_main_node")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_main_node"
+         OLD_RPATH "/opt/ros/humble/lib:"
+         NEW_RPATH "")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/turtlebot4_cpp/turtlebot4_main_node")
+    endif()
+  endif()
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/turtlebot4_cpp")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/turtlebot4_cpp")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -75,7 +135,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp/environment" TYPE FILE FILES "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp/environment" TYPE FILE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -83,42 +143,42 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp/environment" TYPE FILE FILES "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp/environment" TYPE FILE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp" TYPE FILE FILES "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp" TYPE FILE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp" TYPE FILE FILES "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp" TYPE FILE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp" TYPE FILE FILES "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp" TYPE FILE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp" TYPE FILE FILES "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp" TYPE FILE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp" TYPE FILE FILES "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp" TYPE FILE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_index/share/ament_index/resource_index/packages/turtlebot4_cpp")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_index/share/ament_index/resource_index/packages/turtlebot4_cpp")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp/cmake" TYPE FILE FILES
-    "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_core/turtlebot4_cppConfig.cmake"
-    "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_core/turtlebot4_cppConfig-version.cmake"
+    "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_core/turtlebot4_cppConfig.cmake"
+    "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/ament_cmake_core/turtlebot4_cppConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp" TYPE FILE FILES "/home/ros/turtlebot4_ws/src/turtlebot4_cpp/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/turtlebot4_cpp" TYPE FILE FILES "/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -129,5 +189,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

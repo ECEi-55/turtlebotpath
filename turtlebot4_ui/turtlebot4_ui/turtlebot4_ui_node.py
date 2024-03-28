@@ -28,6 +28,7 @@ from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPM
 import cairosvg
 import io
+from threading import Thread
 
 class signal_t(Enum):
     START = 0
@@ -98,6 +99,7 @@ class TurtleBot4Node(Node):
     
     def send_rotate_requst(self, angle):
         self.rotate_req.angle = angle
+        self.rotate_req.max_rotation_speed = 0.85
         self.future = self.rotate_cli.send_goal_async(self.rotate_req)
         rclpy.spin_until_future_complete(self, self.future)
         return self.future
@@ -120,7 +122,7 @@ class App:
         self.subnode = TurtleBot4Sub()
         self.working_image_directory = working_image_directory
 
-        self.pointso = [
+        self.points = [
             [0,0],[0,0.5], 
 
             [0,0.5],[0.5,0.5],
@@ -130,7 +132,14 @@ class App:
             [0.5,0],[0,0]
         ]
 
+        # line with hex codes 
         self.points = [
+            [0,0,0,0.5,"#fb53f0"],
+            [0.5,0.5,0.5,0,"#7ccc38"],
+            [1,0,1,0.5,"#fbf138"],
+        ]
+
+        self.pointso = [
 [0.0, 0.40789473684210525],
 [0.3968253968253968, 0.3157894736842105],
 [0.3968253968253968, 0.3157894736842105],
@@ -168,11 +177,9 @@ class App:
 [0.5079365079365079, 0.8289473684210527],
 [0.36507936507936506, 0.7039473684210527]]
 
-        self.battery_text = customtkinter.CTkLabel(app, text="%0")
-        # self.battery_text.pack()
-        # app.after(1000, self.battery_percent)
+       
 
-        self.debug_text = customtkinter.CTkLabel(app, text="Debug Info: ")
+        # self.debug_text = customtkinter.CTkLabel(app, text="Debug Info: ")
         # self.debug_text.pack()
         # app.after(1000, self.debug_show)
 
@@ -198,6 +205,14 @@ class App:
         self.control_frm = customtkinter.CTkFrame(self.root_frm)
         self.control_frm.grid(row=0, column=0, padx=20, pady=20, sticky="ew")
 
+        # self.battery_percent = "0"
+        # self.battery_percent_thread = Thread(target=self.get_battery_percent)
+        # self.battery_percent_thread.start()
+        # self.battery_text = customtkinter.CTkLabel(self.control_frm, text=("%" + self.battery_percent))
+        # self.battery_text.pack(pady=10)
+        # # thread the app.after
+        # app.after(1000, self.battery_percent_fun)
+
         # image processing frame, hold the image processing stuff.
 
         self.image_setup_frm = customtkinter.CTkFrame(self.root_frm)
@@ -215,6 +230,10 @@ class App:
 
         self.stopButton = customtkinter.CTkButton(self.control_frm, text="Stop Drawing", command=self.stopButtonCallback)
         self.stopButton.pack(pady=10)
+
+        self.pauseButton = customtkinter.CTkButton(self.control_frm, text="Pause Drawing", command=self.pauseButtonCallback)
+        self.pauseButton.pack(pady=10)
+
 
         self.progressbar = customtkinter.CTkProgressBar(self.control_frm, orientation="horizontal")
         self.progressbar.pack(pady=10)
@@ -292,9 +311,12 @@ class App:
             ) 
 
             # self.svg_image_path = "../images/sample_images/test_square.svg"
-            self.svg_image_path = "/home/ros/generated_vector.svg"
-            self.generated_path_image_path = "/home/ros/generated_vector_from_path.svg"
+            self.svg_image_path = "/home/sinan/generated_vector.svg"
+            self.generated_path_image_path = "/home/sinan/generated_vector_from_path.svg"
+            self.image_to_svg(self.svg_image_path, self.colour_reduced_image_path, options)
+
             path = self.generate_path(self.svg_image_path,1.0,1.0, 0.0127, 0.15)
+            self.points = path
             self.path_to_svg(path=path, svg_save_path=self.generated_path_image_path, chalk_width=0.0127, pixel_scale=500)
             image_data = cairosvg.svg2png(url=self.generated_path_image_path)
             image = Image.open(io.BytesIO(image_data))
@@ -347,7 +369,7 @@ class App:
         print("constructing image from array")
         data = Image.fromarray(quantized_image)
         print("saving image data to path to " + save_path) 
-        print(data.save("/home/ros/colour_reduced_image.png"))
+        print(data.save("/home/sinan/colour_reduced_image.png"))
     
     def image_to_svg(self, vector_file_save_path, image_file_load_path, TraceOptions=TraceOptions(despeckle_level=5, despeckle_tightness=7.0)):
 
@@ -399,7 +421,10 @@ class App:
     each item in the format (start position, end position, colour)
     '''
     def generate_path(self, svg,draw_area_width, draw_area_height, chalk_width, min_exclude_dimension):
-
+        '''
+        In the third version, a attempt to add path generation along the direction of maximum variance, 
+        in order to minimize the turning time of the robot and loss of accuracy. 
+        '''
         #load the SVG to get the paths and attributes
         paths, attributes = svg2paths(svg)
 
@@ -440,11 +465,11 @@ class App:
         # simplest method would be to just start with an offset from the first point with the chalk diameter, then go along that line with the same slope until we find an intersection with another segment
         # then from that intersection, we offset the same amount as the original, find another intersection, set the cursor there and start going the other direction.
 
-        # TODO use the principal component analysis to find the guideline instead of using the first segment
-
-        # TODO loop through all the paths:
         chalk_lines = []
-
+        
+        # stores the last point the robot was drawing. 
+        first_point_flag = True
+        last_point = None
         # for a single path
         for p in range(0, len(paths)):
             
@@ -468,126 +493,391 @@ class App:
 
             print("starting path #", p)
 
+            # for the auto generated version we need to parse the style field for the fill colour. 
+            fill = attributes[p]["style"]
+            fill = self.parse_color_code(fill)
+            if fill == None:
+                raise Exception("wrong fill style format for svg")
+
             path_chalk_lines = []
-            # pick the first segment as the guide line:
-            first_segment = paths[p][0]
-            guide_line = first_segment
-            #scale the guide line to make it much longer than the object
 
-            # find the slope of the line
-            rise = guide_line[1].imag - guide_line[0].imag
-            run = guide_line[1].real - guide_line[0].real
+            # append the actual segments of this path to the path
+            # for each, you'll have to *ideally* inset the line by half the chalk amount towards the center.
+            # that way, you don't go beyond the bounds of the shape.
+            # But for the first attempt, just append the lines as is
 
-            #TODO change this to make it proper, instead of faking it
+            #TOOO look into some way to sort these paths before drawing them, because it can go all over with the current strategy. 
+            '''
+            path ordering logic
+            1. Start with a path segment
+            2. add that to the path
+            3. find the next point (check start and end for rest of segments not yet handled) in that is closest to the last of the previous
+            4. Add the new segment to the path (make sure the order is right of the start and end. )
+            4. Update the previous
+            '''
+
+            # flag for each to tell if it's been added
+            seg_added = np.zeros((len(paths[p])))
+            # add the first segment
+            first_chalk_line = (paths[p][0].start.real, paths[p][0].start.imag, paths[p][0].end.real, paths[p][0].end.imag, fill)
+            path_chalk_lines.append(first_chalk_line)
+            previous = [paths[p][0].end.real, paths[p][0].end.imag]
+            seg_added[0] = 1
+
+            # loop enough times for the rest of the elements
+            for i in range(1, len(paths[p])):
+                # loop through seg_added for the segments that haven't been added (value = 0)
+                # compare their distance to the previous
+                # select the one that has the lowest distance as the new segment. 
+                # keep track if it's a start or end of the segment. 
+
+                lowest_dist = 10000
+                is_start = None
+                lowest_index = None
+
+                for j in range(0, len(seg_added)):
+                    if seg_added[j] == 0:
+                        # compute the distance
+                        start_dist = math.sqrt((paths[p][j].start.real - previous[0])**2+(paths[p][j].start.imag - previous[1])**2)
+                        end_dist = math.sqrt((paths[p][j].end.real - previous[0])**2+(paths[p][j].end.imag - previous[1])**2)
+                        if start_dist < lowest_dist:
+                            lowest_dist = start_dist
+                            lowest_index = j
+                            is_start = True
+                        elif end_dist < lowest_dist:
+                            lowest_dist = end_dist
+                            is_start = False
+                            lowest_index = j
+                
+                # once we've looped through them all, determine which was actually closest and add it to path
+                seg_added[lowest_index] = 1
+                chalk_line = None
+                if is_start == True:
+                    chalk_line = (paths[p][lowest_index].start.real, paths[p][lowest_index].start.imag, paths[p][lowest_index].end.real, paths[p][lowest_index].end.imag, fill)
+                    previous = [paths[p][lowest_index].end.real, paths[p][lowest_index].end.imag]
+                elif is_start == False:
+                    chalk_line = (paths[p][lowest_index].end.real, paths[p][lowest_index].end.imag, paths[p][lowest_index].start.real, paths[p][lowest_index].start.imag, fill)
+                    previous = [paths[p][lowest_index].start.real, paths[p][lowest_index].start.imag]
+                else: 
+                    raise Exception("Got is_start = None, which shouldn't happen.")
+                
+                path_chalk_lines.append(chalk_line)
+            
+            # print("seg_added: ",  seg_added)
+            # print("path chalk lines: ", path_chalk_lines)
+
+            # raise Exception("stop for debug.")
+
+
+            # for segment in paths[p]:
+            #     # print("segment: ", segment)
+            #     # print("segment.start: ", segment.start)
+            #     chalk_line = (segment.start.real, segment.start.imag, segment.end.real, segment.end.imag, fill)
+            #     path_chalk_lines.append(chalk_line)
+
+
+            # TODO use the principal component analysis to find the guideline instead of using the first segment
+            '''
+            To do the PCA analysis and pick the direction of maximum variance we need to: 
+            1. extract the points from all the segments, uniquely so that there are no duplices (look at the library to see if there's help for this.)
+            2. Find some version of PCA that will run in ROS. (may have to be python native.)
+            3. Use the PCA to form a guide line
+            4. Create a line perpendicular to the guide line, and then find the intersection with the shape for the start position. 
+            5. do the fill as per usual, but instead of adding a simply vertical offset, it will have to be perpendicular to the guideline. 
+            
+            I will probably have to handle the case where there are multiple intersections on a single guideline as well. 
+            '''
+
+            # 1. extract points
+
+            #use a dict to store them so that we can guarantee that it's unique.
+            #where the key is x_coord:y_coord
+            # and the value is the point
+            var_points = {}
+            for segment in paths[p]:
+                var_points[f"{round(segment.start.real,4)}:{round(segment.start.imag, 4)}"] = segment.start
+                var_points[f"{round(segment.end.real,4)}:{round(segment.end.imag,4)}"] = segment.end
+            
+            # now extract just the value back from that, into a numpy array. 
+            var_points = list(var_points.values())
+            vp_n = np.zeros((len(var_points),2))
+            for i in range(0, len(var_points)):
+                # extract the value
+                vp_n[i][0] = var_points[i].real
+                vp_n[i][1] = var_points[i].imag
+            
+            # 2. PCA
+            # center the mean around 0. 
+            X_meaned = vp_n - np.mean(vp_n, axis=0)
+            # compute the covariance matrix
+            cov_mat = np.cov(X_meaned, rowvar = False)
+            # compute the EigenValues and EigenVectors
+            eigen_values, eigen_vectors = np.linalg.eigh(cov_mat)
+            # sort eigenvalues in descending order
+            sorted_index = np.argsort(eigen_values)[::-1]
+            sorted_eigenvalue = eigen_values[sorted_index]
+            sorted_eigenvectors = eigen_vectors[sorted_index]
+            # select the first two components (direction of guide line, direction of perpendicular line. )
+            n_components = 2
+            eigenvector_subset = sorted_eigenvectors[:, 0:n_components]
+
+            # # print matplot lib showing the eigenvectors and points.
+            # plt.figure(figsize=(8,6))
+            # plt.quiver(0,0, eigenvector_subset[0][0], eigenvector_subset[0][1], angles="xy", scale_units="xy", scale=1, color='r', label="EigenVector 1")
+            # plt.quiver(0,0, eigenvector_subset[1][0], eigenvector_subset[1][1], angles="xy", scale_units="xy", scale=1, color='b', label="EigenVector 2")
+            # plt.scatter(X_meaned[:,0], X_meaned[:,1], color='g', label="Points")
+            # plt.ylim(-2,2)
+            # plt.xlim(-2,2)
+            # plt.title("Eigenvectors and Points Visualization")
+            # plt.legend()
+            # plt.show()
+
+            # 3. use the PCA to form the guideline
+
+            # compute the rise and run of the principal component
+            guide_line_dir = eigenvector_subset[0]
+            guide_line_perp = eigenvector_subset[1]
+            rise = guide_line_dir[1]
+            run = guide_line_dir[0]
+
+            # get the mean of the shape. 
+            
+            # find the intersections of the perpendicular line with the shape. (use the negative direction.)
+            # pick the one that is furthest from the shape. 
+            mean = np.mean(vp_n, axis=0)
+            perp_offset = guide_line_perp * -1000
+            # print("perp_offset: ", perp_offset)
+            perp_line = Line(start=complex(mean[0], mean[1]), end=complex(mean[0] + perp_offset[0], mean[1] + perp_offset[1]))
+            # print("perp_line: ", perp_line)
+
+
+            # ----------- start of new version ---------------------
+
+            '''
+            the goal is to find an intersection point of the guideline with the path that is as far as possible 
+            from the mean in the direction of the perpendicular vector. 
+            Since we're using only straight segments, the furthest of this kind will always be an end of a line
+
+            so loop through all points, and compute the projection of it's vector from the mean onto the perpendicular vector
+            which must be normalized. This will give the distance in that direction.
+
+            Then look for the maximum distance in that direction. 
+            '''
+
+            # guide line perp is the normalized vector in the direction of the pependicular vector
+            # but we actually want to use the opposite vector. 
+            glp_opp = [guide_line_perp[0] * -1, guide_line_perp[1] * -1]
+
+            max_d = -1
+            int_point = None
+
+            for i in range(0, len(vp_n)):
+                point_vector = [vp_n[i][0] - mean[0], vp_n[i][1] - mean[1]]
+                # compute dot product between guide_line_perp and point_vector
+                dot = glp_opp[0]*point_vector[0] + glp_opp[1]*point_vector[1]
+                # dot should be the projected distance of the point vector alone guide_line_perp
+                if dot > max_d: 
+                    max_d = dot
+                    int_point = vp_n[i]
+            
+            print("int_point: ", int_point)
+
+
+            # ------------ end of new version ---------------------
+
+            # # ------------ start of old version --------------------
+
+            # # compute the intersections. 
+            # # find all the intersections of the perpendicular line with the path. 
+            # perp_intersections = []
+            # for (T1, seg1, t1), (T2, seg2, t2) in paths[p].intersect(perp_line):
+            #     perp_intersections.append(paths[p].point(T1))
+
+            # if len(perp_intersections) == 0:
+            #     raise Exception("got no perp_intersections")
+            #     break
+                
+            # # this isn't sufficient, because there may be points further that don't intersect...
+            # # TODO fix this
+            
+            # furthest = perp_intersections[0]
+            # furthest_dist = 0
+
+            # for i in range(0, len(perp_intersections)):
+            #     # compute the distance of this point from the mean.
+            #     dist = math.sqrt((mean[0] - perp_intersections[i].real)**2 + (mean[1] - perp_intersections[i].imag)**2)
+            #     # print(f"distance for intersection {i}: {dist}")
+            #     if dist > furthest_dist:
+            #         furthest = perp_intersections[i]
+            #         furthest_dist = dist
+
+            # int_point = furthest
+
+            # # ------------ end of old version ----------------
+
+            # move the guideline to intersect that point. 
+
+            # if the run is = 0, then it's a vertical line, so it's a special case
+            guide_line = None
             if run == 0:
-                run = 0.0001
-
-            if run != 0:
-                slope = rise/run
-                y_intercept = guide_line[0].imag - slope*guide_line[0].real
-
-                # was this supposed to give a horizontal line? 
-                # new_start = complex(-1000, slope*(100)+y_intercept)
-                # new_end = complex(1000, slope*(100)+y_intercept)
-
-                new_start = complex(-1000, ymin)
-                new_end = complex(1000, ymin)
-
+                new_start = complex(0, 1000)
+                new_end = complex(0, -1000)
                 guide_line = Line(start=new_start, end=new_end)
             else:
-                # handle the case where there is no run, can't divide by zero.
-                
-                new_start = complex(0, -1000)
-                new_end = complex(0, 1000)
-
-            # print("got past guide line creation, guide line: ", guide_line)
+                slope = rise/run
+                # y_int = int_point.imag - slope*int_point.real
+                y_int = int_point[1] - slope*int_point[0]
+                x_1 = -1000
+                x_2 = 1000
+                y_1 = slope*x_1 + y_int 
+                y_2 = slope*x_2 + y_int
+                new_start = complex(x_1, y_1)
+                new_end = complex(x_2,y_2)
+                guide_line = Line(start=new_start, end=new_end)
+            
+            print("guide line: ", guide_line)
 
             # repeatedly add an offset to the guideline, find the two intersections, draw a line between them and add that to the chalk lines
             # stop when no intersections can be found.
             
-            print("length of this path in segments: ", len(paths[p]))
-            print(f"(xdiff:{xdiff}, ydiff:{ydiff})")
+            # print("length of this path in segments: ", len(paths[p]))
+            # print(f"(xdiff:{xdiff}, ydiff:{ydiff})")
 
-            fill = attributes[p]["style"]
-            fill = self.parse_color_code(fill)
-            print("fill for this path sement: ", fill)
+            # plot the guideline and the points. 
+
 
             first_iteration = True
-            last_point = None
             while True:
                 # add offset to the guide line to make the new guide line
-                offset = complex(0, chalk_width)
-                if first_iteration:
-                    offset = complex(0, chalk_width/2)
 
-                #TODO change this so that the offset is perpendicular to the line, not a vertical change. 
-                # use the cross product with the z axis and the guide line. 
-                # atan2 function to get angle. 
+                offset = complex(guide_line_perp[0], guide_line_perp[1])
+
+                if first_iteration:
+                    offset = offset * chalk_width / 2
+                else:
+                    offset = offset * chalk_width
 
                 guide_line = guide_line.translated(offset)
-                print(guide_line)
 
                 # find all the intersections of that guide line with the path
                 intersections = []
-                # for path in paths[p]:
-                #     print(guide_line.intersect(path))
-                #     T1 = guide_line.intersect(path)
-                #     intersections.append(guide_line.point(T1))
-
                 for (T1, seg1, t1), (T2, seg2, t2) in paths[p].intersect(guide_line):
                     intersections.append(paths[p].point(T1))
-                
+
                 if len(intersections) == 0:
                     break
-                elif len(intersections) != 2: #TODO modify it to handle multiple intersections. because the logo needs it. 
-                    print(f"got {len(intersections)} intersections")
-                    print("is this the first iteration: ", first_iteration)
-                    fill = attributes[p]["style"]
-                    fill = self.parse_color_code(fill)
-                    print("shape has this colour: ", fill)
-                    # print("length of this path in segments: ", len(paths[p]))
-                    raise Exception("Got more than 2 intersections. Our software at the moment is not designed to handle this")
-                
-                # for the auto generated version we need to parse the style field for the fill colour. 
-                fill = attributes[p]["style"]
-                fill = self.parse_color_code(fill)
-                if fill == None:
-                    raise Exception("wrong fill style format for svg")
-                
-                chalk_line = None
-                if first_iteration:
-                    # it doesn't really matter
-                    # print(f"intersections[0]: ({intersections[0].real},{intersections[0].imag})")
-                    # print(f"intersections[1]: ({intersections[1].real},{intersections[1].imag})")
-                    chalk_line = (intersections[0].real, intersections[0].imag, intersections[1].real, intersections[1].imag, fill)
-                    last_point = intersections[1]
                 else:
-                    # find which intersection is closest to the last value in path_chalk_lines
-                    dist_0 = abs(last_point - intersections[0])
-                    dist_1 = abs(last_point - intersections[1])
-                    if dist_0 < dist_1:
-                        chalk_line = (intersections[0].real, intersections[0].imag, intersections[1].real, intersections[1].imag, fill)
-                        last_point = intersections[1]
-                    else:
-                        chalk_line = (intersections[1].real, intersections[1].imag, intersections[0].real, intersections[0].imag, fill)
-                        last_point = intersections[0]
+                    '''
+                    This code needs to be generalized to handle any arbitrary number of intersections gracefully:
+                    1. order the intersections if they aren't already by default.
+                    2. start at one edge (because we know the edge always starts a segment that is inside the shape)
+                    3. proceed through the pairs generating the correct shapes, and ignoring the mid regions. 
+                    '''
 
-                # append these intersections to the chalk_lines for this path
-                # print(chalk_line)
-                path_chalk_lines.append(chalk_line)
-                # print(path_chalk_lines)
+                    print("intersections: ", intersections)
+                    
+                    # # plot the intersections
+                    # plt.figure(figsize=(8,6))
+                    # plt.scatter(vp_n[:,0], vp_n[:,1], color='g', label="Points")
 
-                first_iteration = False
+                    n_ints = np.zeros((len(intersections), 2))
+                    for i in range(0, len(intersections)):
+                        n_ints[i][0] = intersections[i].real
+                        n_ints[i][1] = intersections[i].imag
+                    # plt.scatter(n_ints[:,0], n_ints[:,1], color='r', label="intersections")
+
+                    # plt.plot([guide_line.start.real, guide_line.end.real],[guide_line.start.imag, guide_line.end.imag], color='b', linestyle="-", linewidth=2, label="Guideline")
+                    # plt.ylim(-2,2)
+                    # plt.xlim(-2,2)
+                    # plt.title("Eigenvectors and Points Visualization")
+                    # plt.legend()
+                    # plt.show()
+
+                    sorted_array = n_ints[np.argsort(n_ints[:, 1])]
+                    sorted_array = sorted_array[np.argsort(sorted_array[:,0], kind='stable')]
+
+                    print("sorted: ", sorted_array)
+
+                    if first_point_flag:
+                        first_point_flag = False
+                        last_point = sorted_array[0]
+
+                    if first_iteration:
+                        first_iteration = False
+                    
+                    # check the first and last indexes in sorted array to find which is closer to the previous point
+                    first_dist = math.sqrt((last_point[0] - sorted_array[0][0])**2 + (last_point[1] - sorted_array[0][1])**2)
+                    last_dist = math.sqrt((last_point[0] - sorted_array[-1][0])**2 + (last_point[1] - sorted_array[-1][1])**2)
+
+                    if first_dist < last_dist: 
+                        print("starting at first")
+                        # then the closest point is the first, so start there and work forward
+                        for i in range(0, len(sorted_array), 2):
+                            #add line of sorted_array[i] to sorted_array[i+1]
+                            chalk_line = (sorted_array[i][0], sorted_array[i][1], sorted_array[i+1][0], sorted_array[i+1][1], fill)
+                            print(chalk_line)
+                            # append the chalk line to the list of chalk lines;
+                            path_chalk_lines.append(chalk_line)
+                            last_point = sorted_array[i+1]
+                    else: 
+                        print("starting at second")
+                        # then the closest is the back, so work backwards through the array. 
+                        for i in range(len(sorted_array)-1, 0-1, -2):
+                            # add line of sorted_array[i] to sorted_array[i-1]
+                            chalk_line = (sorted_array[i][0], sorted_array[i][1], sorted_array[i-1][0], sorted_array[i-1][1], fill)
+                            print(chalk_line)
+                            # append the chalk line to the list of chalk lines;
+                            path_chalk_lines.append(chalk_line)
+                            last_point = sorted_array[i-1]
+
+                # chalk_line = None
+                # if first_iteration:
+                #     # it doesn't really matter
+                #     # print(f"intersections[0]: ({intersections[0].real},{intersections[0].imag})")
+                #     # print(f"intersections[1]: ({intersections[1].real},{intersections[1].imag})")
+                #     chalk_line = (intersections[0].real, intersections[0].imag, intersections[1].real, intersections[1].imag, fill)
+                #     last_point = intersections[1]
+                # else:
+                #     # find which intersection is closest to the last value in path_chalk_lines
+                #     dist_0 = abs(last_point - intersections[0])
+                #     dist_1 = abs(last_point - intersections[1])
+                #     if dist_0 < dist_1:
+                #         chalk_line = (intersections[0].real, intersections[0].imag, intersections[1].real, intersections[1].imag, fill)
+                #         last_point = intersections[1]
+                #     else:
+                #         chalk_line = (intersections[1].real, intersections[1].imag, intersections[0].real, intersections[0].imag, fill)
+                #         last_point = intersections[0]
+
+                # # append these intersections to the chalk_lines for this path
+                # # print(chalk_line)
+                # path_chalk_lines.append(chalk_line)
+
+                # first_iteration = False
 
             # chalk_lines = path_chalk_lines #TODO replace this
             chalk_lines += path_chalk_lines
-            print("new length of chalk lines: ", len(chalk_lines))
 
 
-            # then we find the lines to generate the fill (linear hatching) along that direction.
-            # then convert that to path information by joining the shapes that have closest end points
+        # then we find the lines to generate the fill (linear hatching) along that direction.
+        # then convert that to path information by joining the shapes that have closest end points
 
         return chalk_lines
+    
+
+    def parse_color_code(self, input_str):
+        '''
+        parses the colour code from the style field of the auto generated svg
+        '''
+
+        start_index = input_str.find("#")
+        if start_index != -1:
+            #extract the substring starting from "#" until the next ';'
+            end_index = input_str.find(';', start_index)
+            if end_index != -1:
+                color_code = input_str[start_index:end_index]
+                return color_code
+        return None
+
 
     '''
     This function is to generate a new SVG from the path extracted from the image's SVG. It is used for debug and confirmation purposes. 
@@ -637,10 +927,19 @@ class App:
         d.set_pixel_scale(pixel_scale)  # Set number of pixels per geometry unit
         d.save_svg(svg_save_path)
 
-    def battery_percent(self):
-        # rclpy.spin_once(self.subnode)
-        # self.battery_text.configure(text=("%" + str(int(self.subnode.get_battery_status()))))
-        self.app.after(1000, self.battery_percent)
+    def battery_percent_fun(self):
+        self.battery_percent = str(int(self.subnode.get_battery_status()))
+        # print(self.subnode.get_battery_status())
+        self.battery_text.configure(text=("%" + self.battery_percent))
+        self.app.after(1000, self.battery_percent_fun)
+    
+    def get_battery_percent(self):
+        # make a thread for rclpy spin\
+        # rclpy.spin(self.subnode)
+        pass
+            
+        
+
     
     def debug_show(self):
         # rclpy.spin_once(self.subnode)
@@ -678,7 +977,10 @@ class App:
 
     def startButtonCallback(self):
         print("Starting Print")
-        self.path()
+        # start a thread for path2
+        self.path2_thread = Thread(target=self.path2)
+        self.path2_thread.start()
+        #
         
     def stopButtonCallback(self):
         self.node.send_signal(signal_t.STOP.value)
@@ -697,6 +999,8 @@ class App:
         time.sleep(15)
 
         for i in range(0, len(self.points), 2):
+            # if paused
+           
             stroke_vector = [0,0]
             stroke_vector[0] = self.points[i+1][0] - self.points[i][0]
             stroke_vector[1] = self.points[i+1][1] - self.points[i][1]
@@ -768,16 +1072,151 @@ class App:
             self.progressbar.set(i+1/len(self.points))
         self.node.send_signal(signal_t.STOP.value)
 
- 
+    def path2(self):
+        global pause
+        pause = 0
+
+        global pause_colour
+        pause_colour = 0
+
+        previous_pos = [0,0]
+        previous_pos[0] = self.points[0][0]
+        previous_pos[1] = self.points[0][1]
+        previous_dir = [0,1]
+
+        self.node.send_signal(signal_t.START.value)
+        time.sleep(15)
+        prev_colour = self.points[0][4]
+
+        for i in range(0, len(self.points)):
+            if pause == 1:
+                while True:
+                    if(pause == 0):
+                        break
+                pause = 0
+            if(self.points[i][4] != prev_colour):
+                self.node.send_signal(signal_t.RAISE.value)
+                time.sleep(4)
+                self.colour_notify(self.points[i][4])
+                while True:
+                    if(pause_colour == 1):
+                        break
+                pause_colour = 0 # get ready for next colour change
+                self.node.send_signal(signal_t.START.value)
+                time.sleep(4)
+            prev_colour = self.points[i][4]
+
+            stroke_vector = [0,0]
+            # (0.5,0.5 ,1,1, #12345)
+            stroke_vector[0] = self.points[i][2] - self.points[i][0]
+            stroke_vector[1] = self.points[i][3] - self.points[i][1]
+            print("stroke_vector: ", stroke_vector)
+
+            stroke_vector_mag = math.sqrt(math.pow(stroke_vector[0],2) + math.pow(stroke_vector[1],2))
+            print("stroke_vector_mag: ", stroke_vector_mag)
+            
+            stroke_vector_norm = [0,0]
+            stroke_vector_norm[0] = stroke_vector[0]/stroke_vector_mag
+            stroke_vector_norm[1] = stroke_vector[1]/stroke_vector_mag
+
+            offset_vector = [0,0]
+            offset_vector[0] = self.offset * stroke_vector_norm[0]
+            offset_vector[1] = self.offset * stroke_vector_norm[1]
+            print("Offset vector: ", offset_vector)
+
+            p1 = [0,0]
+            p1[0] = self.points[i][0] + offset_vector[0]
+            p1[1] = self.points[i][1] + offset_vector[1]
+            
+            print("P1: ", p1)
+
+            p2 = [0,0]
+            p2[0] = self.points[i][2] + offset_vector[0]
+            p2[1] = self.points[i][3] + offset_vector[1]
+            print("P2: ", p2)
+
+            prev_to_p1_vector = [0,0]
+            prev_to_p1_vector[0] = p1[0] - previous_pos[0]
+            prev_to_p1_vector[1] = p1[1] - previous_pos[1]
+            print("prev_to_p1_vector: ", prev_to_p1_vector)
+
+            prev_to_p1_mag = math.sqrt(math.pow(prev_to_p1_vector[0], 2) + math.pow(prev_to_p1_vector[1],2))
+            prev_to_p1_vector_norm = [0,0]
+            prev_to_p1_vector_norm[0] = prev_to_p1_vector[0] / prev_to_p1_mag
+            prev_to_p1_vector_norm[1] = prev_to_p1_vector[1] / prev_to_p1_mag
+            print("prev_to_p1_vector_norm: ", prev_to_p1_vector_norm)
+
+            prev_to_p1_cross_mag = (previous_dir[0] * prev_to_p1_vector_norm[1]) - (prev_to_p1_vector_norm[0] * previous_dir[1])
+
+            theta = math.atan2(prev_to_p1_cross_mag, self.dot(prev_to_p1_vector_norm, previous_dir))
+            print("Theta(1): ", theta)
+            
+            self.node.send_signal(signal_t.RAISE.value)
+            time.sleep(4)
+            self.node.send_rotate_requst(theta)
+            time.sleep(4)
+            self.node.send_drive_request(prev_to_p1_mag)
+            time.sleep(4)
+
+            p1_to_stroke_cross_mag = (prev_to_p1_vector_norm[0] * stroke_vector_norm[1]) - (stroke_vector_norm[0] * prev_to_p1_vector_norm[1])
+            print("P1_to_stroke_cross_mag: ", p1_to_stroke_cross_mag)
+
+            theta = math.atan2(p1_to_stroke_cross_mag, self.dot(stroke_vector_norm, prev_to_p1_vector_norm))
+            print("Theta(2): ", theta)
+            
+            self.node.send_rotate_requst(theta)
+            time.sleep(4)
+            self.node.send_signal(signal_t.START.value)
+            time.sleep(4)
+            self.node.send_drive_request(stroke_vector_mag)
+            time.sleep(4)
+
+            previous_dir[0] = stroke_vector_norm[0]
+            previous_dir[1] = stroke_vector_norm[1]
+            previous_pos[0] = p2[0]
+            previous_pos[1] = p2[1]
+
+            self.progressbar.set(i+1/len(self.points))
+        self.node.send_signal(signal_t.STOP.value)
+
     def dot(self, a, b):
         return a[0]*b[0] + a[1]*b[1]
+    
+    def colour_notify(self, colour):
+        # prompt the user and have a button to change pa
+        # use_colour to 1
+        # then the path2 function will continue
+        self.colour_label = customtkinter.CTkLabel(self.control_frm, text=("Change to colour: " + colour))
+        self.colour_button = customtkinter.CTkButton(self.control_frm, text="Change Done", command=self.colourButtonCallback, fg_color=colour)
+        self.colour_button.pack()
+        self.colour_label.pack()
+        self.app.update()
+
+    def colourButtonCallback(self):
+        global pause_colour
+        pause_colour = 1
+        self.colour_button.pack_forget()
+        self.colour_label.pack_forget()
+        self.app.update()
+        
+    def pauseButtonCallback(self):
+        global pause
+        # change the text of the button to resume
+        self.pauseButton.configure(text="Pause Drawing" if pause == 1 else "Resume Drawing")
+        if pause == 1:
+            pause = 0
+        else:
+            pause = 1
+
+        
+
 
 
 def main(args=None):
     customtkinter.set_appearance_mode("dark")
     root = customtkinter.CTk()
     # root.geometry("1024x800")
-    app = App(root, args, working_image_directory="/home/ros/")
+    app = App(root, args, working_image_directory="/home/sinan/")
     root.mainloop()
 
 if __name__ == "__main__":

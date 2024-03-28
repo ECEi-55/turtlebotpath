@@ -1,0 +1,36 @@
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_goal_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::path()[m[K’:
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_goal_node.cpp:107:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kpath_d[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  107 |     auto [01;35m[Kpath_d[m[K = irobot_create_msgs::action::DriveDistance_Goal();
+      |          [01;35m[K^~~~~~[m[K
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_goal_node.cpp:108:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kpath_r[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  108 |     auto [01;35m[Kpath_r[m[K = irobot_create_msgs::action::RotateAngle_Goal();
+      |          [01;35m[K^~~~~~[m[K
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_drive_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4DriveNode::drive_callback(irobot_create_msgs::action::DriveDistance_Goal)[m[K’:
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_drive_node.cpp:51:76:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kpath_d[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   51 |   void drive_callback([01;35m[Kconst irobot_create_msgs::action::DriveDistance_Goal path_d[m[K)
+      |                       [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_main_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::battery_state_callback(sensor_msgs::msg::BatteryState)[m[K’:
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_main_node.cpp:52:68:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kbstate[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   52 |   void battery_state_callback([01;35m[Kconst sensor_msgs::msg::BatteryState bstate[m[K){
+      |                               [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_rotate_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4RotateNode::rotate_callback(irobot_create_msgs::action::RotateAngle_Goal)[m[K’:
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_rotate_node.cpp:52:75:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kpath_d[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   52 |   void rotate_callback([01;35m[Kconst irobot_create_msgs::action::RotateAngle_Goal path_d[m[K)
+      |                        [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::battery_state_callback(sensor_msgs::msg::BatteryState)[m[K’:
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp:48:68:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kbstate[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   48 |   void battery_state_callback([01;35m[Kconst sensor_msgs::msg::BatteryState bstate[m[K){
+      |                               [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_main_node.cpp:[m[K In member function ‘[01m[Kvoid TurtleBot4Node::path()[m[K’:
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_main_node.cpp:103:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kpath_d[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  103 |     auto [01;35m[Kpath_d[m[K = irobot_create_msgs::action::DriveDistance_Goal();
+      |          [01;35m[K^~~~~~[m[K
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_main_node.cpp:105:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kpath_r[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  105 |     auto [01;35m[Kpath_r[m[K = irobot_create_msgs::action::RotateAngle_Goal();
+      |          [01;35m[K^~~~~~[m[K
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_main_node.cpp:123:11:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kcurrent_pos[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  123 |     float [01;35m[Kcurrent_pos[m[K[2];
+      |           [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_main_node.cpp:127:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcurrent_dir[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  127 |     float [01;35m[Kcurrent_dir[m[K[2] = {0,1};
+      |           [01;35m[K^~~~~~~~~~~[m[K

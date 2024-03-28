@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/turtlebot4_ws/src/turtlebot4_cpp
+CMAKE_SOURCE_DIR = /home/sinan/turtlebot4_ws/src/turtlebot4_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/turtlebot4_ws/build/turtlebot4_cpp
+CMAKE_BINARY_DIR = /home/sinan/turtlebot4_ws/build/turtlebot4_cpp
 
 # Utility rule file for turtlebot4_cpp_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/turtlebot4_cpp_uninstall.dir/compiler_depend.make
 include CMakeFiles/turtlebot4_cpp_uninstall.dir/progress.make
 
 CMakeFiles/turtlebot4_cpp_uninstall:
-	/usr/bin/cmake -P /home/ros/turtlebot4_ws/build/turtlebot4_cpp/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/sinan/turtlebot4_ws/build/turtlebot4_cpp/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 turtlebot4_cpp_uninstall: CMakeFiles/turtlebot4_cpp_uninstall
 turtlebot4_cpp_uninstall: CMakeFiles/turtlebot4_cpp_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/turtlebot4_cpp_uninstall.dir/clean:
 .PHONY : CMakeFiles/turtlebot4_cpp_uninstall.dir/clean
 
 CMakeFiles/turtlebot4_cpp_uninstall.dir/depend:
-	cd /home/ros/turtlebot4_ws/build/turtlebot4_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/turtlebot4_ws/src/turtlebot4_cpp /home/ros/turtlebot4_ws/src/turtlebot4_cpp /home/ros/turtlebot4_ws/build/turtlebot4_cpp /home/ros/turtlebot4_ws/build/turtlebot4_cpp /home/ros/turtlebot4_ws/build/turtlebot4_cpp/CMakeFiles/turtlebot4_cpp_uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sinan/turtlebot4_ws/build/turtlebot4_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sinan/turtlebot4_ws/src/turtlebot4_cpp /home/sinan/turtlebot4_ws/src/turtlebot4_cpp /home/sinan/turtlebot4_ws/build/turtlebot4_cpp /home/sinan/turtlebot4_ws/build/turtlebot4_cpp /home/sinan/turtlebot4_ws/build/turtlebot4_cpp/CMakeFiles/turtlebot4_cpp_uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/turtlebot4_cpp_uninstall.dir/depend
 

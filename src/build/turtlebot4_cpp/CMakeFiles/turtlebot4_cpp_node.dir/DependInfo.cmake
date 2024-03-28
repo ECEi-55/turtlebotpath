@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ros/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp" "CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o" "gcc" "CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o.d"
+  "/home/sinan/turtlebot4_ws/src/turtlebot4_cpp/src/turtlebot4_cpp_node.cpp" "CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o" "gcc" "CMakeFiles/turtlebot4_cpp_node.dir/src/turtlebot4_cpp_node.cpp.o.d"
   )
 
 # Targets to which this target links.

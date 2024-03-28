@@ -1,0 +1,24 @@
+[0.513s] Invoking command in '/home/sinan/turtlebot4_ws/turtlebot4_ui': PYTHONPATH=/home/sinan/turtlebot4_ws/turtlebot4_ui/build/turtlebot4_ui/prefix_override:/home/sinan/turtlebot4_ws/turtlebot4_ui/install/turtlebot4_ui/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/turtlebot4_ui build --build-base /home/sinan/turtlebot4_ws/turtlebot4_ui/build/turtlebot4_ui/build install --record /home/sinan/turtlebot4_ws/turtlebot4_ui/build/turtlebot4_ui/install.log --single-version-externally-managed install_data
+[0.718s] running egg_info
+[0.718s] writing build/turtlebot4_ui/turtlebot4_ui.egg-info/PKG-INFO
+[0.718s] writing dependency_links to build/turtlebot4_ui/turtlebot4_ui.egg-info/dependency_links.txt
+[0.719s] writing entry points to build/turtlebot4_ui/turtlebot4_ui.egg-info/entry_points.txt
+[0.719s] writing requirements to build/turtlebot4_ui/turtlebot4_ui.egg-info/requires.txt
+[0.719s] writing top-level names to build/turtlebot4_ui/turtlebot4_ui.egg-info/top_level.txt
+[0.720s] reading manifest file 'build/turtlebot4_ui/turtlebot4_ui.egg-info/SOURCES.txt'
+[0.721s] writing manifest file 'build/turtlebot4_ui/turtlebot4_ui.egg-info/SOURCES.txt'
+[0.721s] running build
+[0.721s] running build_py
+[0.721s] copying turtlebot4_ui/turtlebot4_ui_node.py -> /home/sinan/turtlebot4_ws/turtlebot4_ui/build/turtlebot4_ui/build/lib/turtlebot4_ui
+[0.722s] running install
+[0.722s] running install_lib
+[0.722s] copying /home/sinan/turtlebot4_ws/turtlebot4_ui/build/turtlebot4_ui/build/lib/turtlebot4_ui/turtlebot4_ui_node.py -> /home/sinan/turtlebot4_ws/turtlebot4_ui/install/turtlebot4_ui/lib/python3.10/site-packages/turtlebot4_ui
+[0.723s] byte-compiling /home/sinan/turtlebot4_ws/turtlebot4_ui/install/turtlebot4_ui/lib/python3.10/site-packages/turtlebot4_ui/turtlebot4_ui_node.py to turtlebot4_ui_node.cpython-310.pyc
+[0.729s] running install_data
+[0.729s] running install_egg_info
+[0.730s] removing '/home/sinan/turtlebot4_ws/turtlebot4_ui/install/turtlebot4_ui/lib/python3.10/site-packages/turtlebot4_ui-0.0.0-py3.10.egg-info' (and everything under it)
+[0.731s] Copying build/turtlebot4_ui/turtlebot4_ui.egg-info to /home/sinan/turtlebot4_ws/turtlebot4_ui/install/turtlebot4_ui/lib/python3.10/site-packages/turtlebot4_ui-0.0.0-py3.10.egg-info
+[0.731s] running install_scripts
+[0.748s] Installing turtlebot4_ui_node script to /home/sinan/turtlebot4_ws/turtlebot4_ui/install/turtlebot4_ui/lib/turtlebot4_ui
+[0.749s] writing list of installed files to '/home/sinan/turtlebot4_ws/turtlebot4_ui/build/turtlebot4_ui/install.log'
+[0.765s] Invoked command in '/home/sinan/turtlebot4_ws/turtlebot4_ui' returned '0': PYTHONPATH=/home/sinan/turtlebot4_ws/turtlebot4_ui/build/turtlebot4_ui/prefix_override:/home/sinan/turtlebot4_ws/turtlebot4_ui/install/turtlebot4_ui/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/turtlebot4_ui build --build-base /home/sinan/turtlebot4_ws/turtlebot4_ui/build/turtlebot4_ui/build install --record /home/sinan/turtlebot4_ws/turtlebot4_ui/build/turtlebot4_ui/install.log --single-version-externally-managed install_data

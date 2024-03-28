@@ -12,6 +12,7 @@
 #include "irobot_create_msgs/action/drive_distance.hpp"
 #include "irobot_create_msgs/action/rotate_angle.hpp"
 #include "turtlebot4_node_interfaces/srv/drive.hpp"
+#include "turtlebot4_node_interfaces/srv/rotate.hpp"
 #include <std_msgs/msg/header.hpp>
 
 using namespace std::chrono_literals;
@@ -30,6 +31,8 @@ public:
     this->drive_publisher_ = this->create_publisher<irobot_create_msgs::action::DriveDistance_Goal>("/robot_drive", rclcpp::SensorDataQoS());
     this->rotate_publisher_ = this->create_publisher<irobot_create_msgs::action::RotateAngle_Goal>("/robot_rotate", rclcpp::SensorDataQoS());
     this->drive_client_ = this->create_client<turtlebot4_node_interfaces::srv::Drive>("/robot_drive_srv");
+    this->rotate_client_ = this->create_client<turtlebot4_node_interfaces::srv::Rotate>("/robot_rotate_srv");
+  
   }
 private:
   // Interface buttons subscription callback
@@ -75,11 +78,19 @@ private:
     auto dist = std::make_shared<turtlebot4_node_interfaces::srv::Drive::Request>();
     dist->distance = 1;
     auto result = this->drive_client_->async_send_request(dist);
-    if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) 
-        != rclcpp::FutureReturnCode::SUCCESS) {
+
+    // sleep
+    rclcpp::sleep_for(4s);
+
+    auto rotate = std::make_shared<turtlebot4_node_interfaces::srv::Rotate::Request>();
+    rotate->angle = 3.14/2;
+    this->rotate_client_->async_send_request(rotate);
+
+    // if (rclcpp::spin_until_future_complete(this->get_node_base_interface(), result) 
+    //     != rclcpp::FutureReturnCode::SUCCESS) {
           
-          RCLCPP_INFO(this->get_logger(), "send rotate goal over");
-        }
+    //       RCLCPP_INFO(this->get_logger(), "send rotate goal over");
+    //     }
 
 
     // while(!this->drive_client_->wait_for_service(1s)){
@@ -170,6 +181,7 @@ private:
   rclcpp::Publisher<irobot_create_msgs::action::DriveDistance_Goal>::SharedPtr drive_publisher_;
   rclcpp::Publisher<irobot_create_msgs::action::RotateAngle_Goal>::SharedPtr rotate_publisher_;
   rclcpp::Client<turtlebot4_node_interfaces::srv::Drive>::SharedPtr drive_client_;
+  rclcpp::Client<turtlebot4_node_interfaces::srv::Rotate>::SharedPtr rotate_client_;
   rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr pose_publisher_;
 };
 

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/turtlebot4_ws/src/turtlebot4_cpp
+CMAKE_SOURCE_DIR = /home/sinan/turtlebot4_ws/src/turtlebot4_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp
+CMAKE_BINARY_DIR = /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/turtlebot4_ws/src/turtlebot4_cpp /home/ros/turtlebot4_ws/src/turtlebot4_cpp /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp /home/ros/turtlebot4_ws/src/build/turtlebot4_cpp/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sinan/turtlebot4_ws/src/turtlebot4_cpp /home/sinan/turtlebot4_ws/src/turtlebot4_cpp /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp /home/sinan/turtlebot4_ws/src/build/turtlebot4_cpp/CMakeFiles/uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/uninstall.dir/depend
 
