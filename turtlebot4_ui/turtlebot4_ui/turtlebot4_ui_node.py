@@ -122,18 +122,28 @@ class App:
         self.subnode = TurtleBot4Sub()
         self.working_image_directory = working_image_directory
 
+        self.pointst = [
+            [0,0],[0,2.5], 
+
+            [0,2.5],[2.5,2.5],
+
+            [2.5,2.5],[2.5,0],
+
+            [2.5,0],[0,0]
+        ]
+
         self.points = [
-            [0,0],[0,0.5], 
+            [0,0,0,2.5,"#fb53f0"], 
 
-            [0,0.5],[0.5,0.5],
+            [0,2.5,2.5,2.5,"#fb53f0"],
 
-            [0.5,0.5],[0.5,0],
+            [2.5,2.5,2.5,0,"#fb53f0"],
 
-            [0.5,0],[0,0]
+            [2.5,0,0,0,"#fb53f0"]
         ]
 
         # line with hex codes 
-        self.points = [
+        self.pointss = [
             [0,0,0,0.5,"#fb53f0"],
             [0.5,0.5,0.5,0,"#7ccc38"],
             [1,0,1,0.5,"#fbf138"],
@@ -233,11 +243,10 @@ class App:
 
         self.pauseButton = customtkinter.CTkButton(self.control_frm, text="Pause Drawing", command=self.pauseButtonCallback)
         self.pauseButton.pack(pady=10)
-
-
-        self.progressbar = customtkinter.CTkProgressBar(self.control_frm, orientation="horizontal")
-        self.progressbar.pack(pady=10)
-        self.progressbar.set(0)
+        
+        self.totaltime = customtkinter.CTkLabel(self.control_frm, text="Total Time: ")
+        self.totaldistance = customtkinter.CTkLabel(self.control_frm, text="Total Distance (m): ")
+        self.totalchalkused = customtkinter.CTkLabel(self.control_frm, text="Total Chalk Used (cm): ")
 
         self.control_robot_label = customtkinter.CTkLabel(self.control_frm, text="w: forward\ns: backward\na: left\n d: right\n r: raise chalk\n f: lower chalk")
         self.control_robot_label.pack(pady=10)
@@ -263,6 +272,8 @@ class App:
 
         self.upload_image_button = customtkinter.CTkButton(self.color_button_frm, text="Upload Image", command=self.upload_image)
         self.upload_image_button.pack(pady=10)
+
+        self.totaltimepathgen = customtkinter.CTkLabel(self.control_frm, text="Total Time Path Gen: ")
     
     def pick_colour(self, button_index):
         color = colorchooser.askcolor()[1]
@@ -272,6 +283,7 @@ class App:
     
     def upload_image(self):
         file_path = filedialog.askopenfilename(title="Select Image")#, filetypes=[("Image Files", "*.png;*.jpg;*.jpeg")])
+        starttime = time.time()
         if file_path: 
             # display the original image
             image = Image.open(file_path)
@@ -324,6 +336,11 @@ class App:
             photo = customtkinter.CTkImage(image, size=(200,200))
             self.generated_path_image_label.configure(image=photo, text="")
             self.generated_path_image_label.pack(pady=20)
+            endtime = time.time()
+            self.totaltimepathgen.configure(text=("Total Time Path Gen: " + str(endtime-starttime)))
+            self.totaltimepathgen.pack(pady=20)
+            self.app.update()
+        
 
     def find_nearest_color(self, pixel, custom_colors):
         min_distance = float('inf')
@@ -937,9 +954,6 @@ class App:
         # make a thread for rclpy spin\
         # rclpy.spin(self.subnode)
         pass
-            
-        
-
     
     def debug_show(self):
         # rclpy.spin_once(self.subnode)
@@ -977,10 +991,12 @@ class App:
 
     def startButtonCallback(self):
         print("Starting Print")
+        self.totalchalkused.pack_forget()
+        self.totaltimepathgen.pack_forget()
+        self.totaldistance.pack_forget()
         # start a thread for path2
         self.path2_thread = Thread(target=self.path2)
         self.path2_thread.start()
-        #
         
     def stopButtonCallback(self):
         self.node.send_signal(signal_t.STOP.value)
@@ -1045,11 +1061,11 @@ class App:
             print("Theta(1): ", theta)
             
             self.node.send_signal(signal_t.RAISE.value)
-            time.sleep(4)
+            time.sleep(6)
             self.node.send_rotate_requst(theta)
-            time.sleep(4)
+            time.sleep(6)
             self.node.send_drive_request(prev_to_p1_mag)
-            time.sleep(4)
+            time.sleep(6)
 
             p1_to_stroke_cross_mag = (prev_to_p1_vector_norm[0] * stroke_vector_norm[1]) - (stroke_vector_norm[0] * prev_to_p1_vector_norm[1])
             print("P1_to_stroke_cross_mag: ", p1_to_stroke_cross_mag)
@@ -1058,21 +1074,21 @@ class App:
             print("Theta(2): ", theta)
             
             self.node.send_rotate_requst(theta)
-            time.sleep(4)
+            time.sleep(6)
             self.node.send_signal(signal_t.START.value)
-            time.sleep(4)
+            time.sleep(6)
             self.node.send_drive_request(stroke_vector_mag)
-            time.sleep(4)
+            time.sleep(6)
 
             previous_dir[0] = stroke_vector_norm[0]
             previous_dir[1] = stroke_vector_norm[1]
             previous_pos[0] = p2[0]
             previous_pos[1] = p2[1]
 
-            self.progressbar.set(i+1/len(self.points))
         self.node.send_signal(signal_t.STOP.value)
 
     def path2(self):
+        starttime = time.time()
         global pause
         pause = 0
 
@@ -1087,6 +1103,7 @@ class App:
         self.node.send_signal(signal_t.START.value)
         time.sleep(15)
         prev_colour = self.points[0][4]
+        distancetraveled = 0
 
         for i in range(0, len(self.points)):
             if pause == 1:
@@ -1096,14 +1113,14 @@ class App:
                 pause = 0
             if(self.points[i][4] != prev_colour):
                 self.node.send_signal(signal_t.RAISE.value)
-                time.sleep(4)
+                time.sleep(6)
                 self.colour_notify(self.points[i][4])
                 while True:
                     if(pause_colour == 1):
                         break
                 pause_colour = 0 # get ready for next colour change
                 self.node.send_signal(signal_t.START.value)
-                time.sleep(4)
+                time.sleep(6)
             prev_colour = self.points[i][4]
 
             stroke_vector = [0,0]
@@ -1152,11 +1169,11 @@ class App:
             print("Theta(1): ", theta)
             
             self.node.send_signal(signal_t.RAISE.value)
-            time.sleep(4)
+            time.sleep(6)
             self.node.send_rotate_requst(theta)
-            time.sleep(4)
+            time.sleep(6)
             self.node.send_drive_request(prev_to_p1_mag)
-            time.sleep(4)
+            time.sleep(6)
 
             p1_to_stroke_cross_mag = (prev_to_p1_vector_norm[0] * stroke_vector_norm[1]) - (stroke_vector_norm[0] * prev_to_p1_vector_norm[1])
             print("P1_to_stroke_cross_mag: ", p1_to_stroke_cross_mag)
@@ -1165,19 +1182,27 @@ class App:
             print("Theta(2): ", theta)
             
             self.node.send_rotate_requst(theta)
-            time.sleep(4)
+            time.sleep(6)
             self.node.send_signal(signal_t.START.value)
-            time.sleep(4)
+            time.sleep(6)
             self.node.send_drive_request(stroke_vector_mag)
-            time.sleep(4)
+            time.sleep(6)
 
             previous_dir[0] = stroke_vector_norm[0]
             previous_dir[1] = stroke_vector_norm[1]
             previous_pos[0] = p2[0]
             previous_pos[1] = p2[1]
+            distancetraveled += stroke_vector_mag
 
-            self.progressbar.set(i+1/len(self.points))
         self.node.send_signal(signal_t.STOP.value)
+        endtime = time.time()
+        self.totaltime.configure(text=("Total Time: " + str(endtime-starttime)))
+        self.totaltime.pack()
+        self.totaldistance.configure(text=("Total Distance: " + str(distancetraveled)))
+        self.totaldistance.pack()
+        self.totalchalkused.configure(text=("Total Chalk Used: " + str(distancetraveled * self.offset)))
+        self.totalchalkused.pack()
+        self.app.update()
 
     def dot(self, a, b):
         return a[0]*b[0] + a[1]*b[1]
